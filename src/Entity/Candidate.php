@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: CandidateRepository::class)]
 class Candidate
@@ -14,27 +15,35 @@ class Candidate
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['candidate:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['candidate:read'])]
     private ?string $fullName = null;
 
     #[ORM\Column(length: 20, nullable: true)]
+    #[Groups(['candidate:read'])]
     private ?string $phone = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['candidate:read'])]
     private ?string $cvFilePath = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['candidate:read'])]
     private ?array $skills = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['candidate:read'])]
     private ?int $experienceMonths = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['candidate:read'])]
     private ?array $languages = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['candidate:read'])]
     private ?string $summary = null;
 
     #[ORM\Column]

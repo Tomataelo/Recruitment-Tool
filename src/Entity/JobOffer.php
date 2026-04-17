@@ -49,7 +49,7 @@ class JobOffer
     private ?JobOfferStatus $status = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    private ?\DateTimeImmutable $createdAt;
 
     #[ORM\ManyToOne(inversedBy: 'jobOffers')]
     #[ORM\JoinColumn(nullable: false)]
@@ -60,12 +60,12 @@ class JobOffer
      * @var Collection<int, Application>
      */
     #[ORM\OneToMany(targetEntity: Application::class, mappedBy: 'jobOffer')]
-    #[Groups(['jobOffer:read'])]
     private Collection $applications;
 
     public function __construct()
     {
         $this->applications = new ArrayCollection();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
