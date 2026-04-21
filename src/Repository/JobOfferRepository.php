@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\JobOffer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Enum\JobOffer\JobOfferStatus;
 use Doctrine\ORM\QueryBuilder;
@@ -13,12 +14,27 @@ use Doctrine\ORM\QueryBuilder;
  */
 class JobOfferRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(
+        ManagerRegistry $registry,
+        private readonly EntityManagerInterface $entityManager
+    )
     {
         parent::__construct($registry, JobOffer::class);
     }
 
-    public function findPaginated(?JobOfferStatus $status = null): QueryBuilder
+    public function save(JobOffer $jobOffer): void
+    {
+        $this->entityManager->persist($jobOffer);
+        $this->entityManager->flush();
+    }
+
+    public function delete(JobOffer $jobOffer): void
+    {
+        $this->entityManager->remove($jobOffer);
+        $this->entityManager->flush();
+    }
+
+    public function findByStatus(?JobOfferStatus $status = null): QueryBuilder
     {
         $qb = $this->createQueryBuilder('jo')
             ->orderBy('jo.createdAt', 'DESC');
