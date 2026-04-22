@@ -3,7 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Candidate;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -11,9 +13,23 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class CandidateRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(
+        ManagerRegistry $registry,
+        private readonly EntityManagerInterface $entityManager
+    )
     {
         parent::__construct($registry, Candidate::class);
+    }
+
+    public function save(Candidate $candidate): void
+    {
+        $this->entityManager->persist($candidate);
+        $this->entityManager->flush();
+    }
+
+    public function findByUser(User $user): ?Candidate
+    {
+        return $this->findOneBy(['candidateUser' => $user]);
     }
 
     //    /**
