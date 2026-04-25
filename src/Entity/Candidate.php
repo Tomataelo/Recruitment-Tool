@@ -15,35 +15,35 @@ class Candidate
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['candidate:read'])]
+    #[Groups(['candidate:read', 'application:candidate'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['candidate:read'])]
+    #[Groups(['candidate:read', 'application:candidate'])]
     private ?string $fullName = null;
 
     #[ORM\Column(length: 20, nullable: true)]
-    #[Groups(['candidate:read'])]
+    #[Groups(['candidate:read', 'application:candidate'])]
     private ?string $phone = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['candidate:read'])]
+    #[Groups(['candidate:read', 'application:candidate'])]
     private ?string $cvFilePath = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(['candidate:read'])]
+    #[Groups(['candidate:read', 'application:candidate'])]
     private ?array $skills = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(['candidate:read'])]
+    #[Groups(['candidate:read', 'application:candidate'])]
     private ?int $experienceMonths = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(['candidate:read'])]
+    #[Groups(['candidate:read', 'application:candidate'])]
     private ?array $languages = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    #[Groups(['candidate:read'])]
+    #[Groups(['candidate:read', 'application:candidate'])]
     private ?string $summary = null;
 
     #[ORM\Column]

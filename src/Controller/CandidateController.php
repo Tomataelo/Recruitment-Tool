@@ -6,6 +6,7 @@ use App\Dto\Candidate\CreateCandidateDto;
 use App\Dto\Candidate\UpdateCandidateDto;
 use App\Security\Voter\CandidateVoter;
 use App\Service\CandidateService;
+use App\Service\LLM\CvParser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

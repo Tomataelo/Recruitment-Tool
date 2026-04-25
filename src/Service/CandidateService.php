@@ -9,6 +9,7 @@ use App\Entity\User;
 use App\Exception\CandidateAlreadyExistsException;
 use App\Exception\CandidateNotFoundException;
 use App\Repository\CandidateRepository;
+use App\Service\LLM\CvParser;
 use League\Flysystem\FilesystemException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -17,6 +18,7 @@ readonly class CandidateService
     public function __construct(
         private CandidateRepository $candidateRepository,
         private CvUploadService $cvUploadService,
+        private CvParser $cvParser,
     ) {}
 
     public function create(CreateCandidateDto $dto, User $user): Candidate
@@ -84,6 +86,13 @@ readonly class CandidateService
 
         $fileName = $this->cvUploadService->upload($file);
         $candidate->setCvFilePath($fileName);
+
+        $parsed = $this->cvParser->parse($fileName);
+
+        $candidate->setSkills($parsed['skills'] ?? []);
+        $candidate->setExperienceMonths($parsed['experience_months'] ?? null);
+        $candidate->setLanguages($parsed['languages'] ?? []);
+        $candidate->setSummary($parsed['summary'] ?? null);
 
         $this->candidateRepository->save($candidate);
     }

@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Serializer\Attribute\Groups;
 use App\Enum\Application\ApplicationStatus;
-use App\Enum\Application\matchLevel;
+use App\Enum\Application\MatchLevel;
 use App\Repository\ApplicationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,35 +15,45 @@ class Application
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['application:read'])]
     private ?int $id = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['application:read'])]
     private ?int $score = null;
 
-    #[ORM\Column(length: 10, nullable: true, enumType: matchLevel::class)]
+    #[ORM\Column(length: 10, nullable: true, enumType: MatchLevel::class)]
+    #[Groups(['application:read'])]
     private ?string $matchLevel = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['application:read'])]
     private ?string $scoreSummary = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['application:read'])]
     private ?string $recruiterNote = null;
 
-    #[ORM\Column(length: 10, nullable: true, enumType: matchLevel::class)]
-    private ?string $recruiterMatchOverride = null;
+    #[ORM\Column(length: 10, nullable: true, enumType: MatchLevel::class)]
+    #[Groups(['application:read'])]
+    private ?MatchLevel $recruiterMatchOverride = null;
 
     #[ORM\Column(length: 10, enumType: ApplicationStatus::class)]
-    private ?string $status = null;
+    #[Groups(['application:read'])]
+    private ?ApplicationStatus $status = null;
 
     #[ORM\Column]
+    #[Groups(['application:read'])]
     private ?\DateTimeImmutable $appliedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'applications')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['application:candidate'])]
     private ?Candidate $candidate = null;
 
     #[ORM\ManyToOne(inversedBy: 'applications')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['application:jobOffer'])]
     private ?JobOffer $jobOffer = null;
 
     public function getId(): ?int
@@ -98,24 +109,24 @@ class Application
         return $this;
     }
 
-    public function getRecruiterMatchOverride(): ?string
+    public function getRecruiterMatchOverride(): ?MatchLevel
     {
         return $this->recruiterMatchOverride;
     }
 
-    public function setRecruiterMatchOverride(?string $recruiterMatchOverride): static
+    public function setRecruiterMatchOverride(?MatchLevel $recruiterMatchOverride): static
     {
         $this->recruiterMatchOverride = $recruiterMatchOverride;
 
         return $this;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): ?ApplicationStatus
     {
         return $this->status;
     }
 
-    public function setStatus(string $status): static
+    public function setStatus(ApplicationStatus $status): static
     {
         $this->status = $status;
 

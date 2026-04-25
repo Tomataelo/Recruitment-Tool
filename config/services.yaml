@@ -19,5 +19,18 @@ services:
     App\:
         resource: '../src/'
 
+    App\Service\CvUploadService:
+        arguments:
+            $cvStorage: '@cv.storage'
+
+    App\Service\LLM\CvParser:
+        arguments:
+            $cvStorage: '@cv.storage'
+
+    App\Service\LLM\ClaudeClient:
+        arguments:
+            $apiKey: '%env(ANTHROPIC_API_KEY)%'
+            $model:  '%env(ANTHROPIC_MODEL)%'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
