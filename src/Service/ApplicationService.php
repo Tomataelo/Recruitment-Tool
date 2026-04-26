@@ -16,6 +16,9 @@ use App\Exception\JobOfferNotActiveException;
 use App\Repository\ApplicationRepository;
 use App\Repository\CandidateRepository;
 use App\Repository\JobOfferRepository;
+use Symfony\Component\Messenger\Exception\ExceptionInterface;
+use Symfony\Component\Messenger\MessageBusInterface;
+use App\Message\ScoreCandidateMessage;
 
 readonly class ApplicationService
 {
@@ -23,8 +26,12 @@ readonly class ApplicationService
         private ApplicationRepository $applicationRepository,
         private CandidateRepository   $candidateRepository,
         private JobOfferRepository    $jobOfferRepository,
+        private MessageBusInterface $messageBus,
     ) {}
 
+    /**
+     * @throws ExceptionInterface
+     */
     public function apply(CreateApplicationDto $dto, User $user): Application
     {
         $candidate = $this->candidateRepository->findByUser($user);
@@ -54,6 +61,8 @@ readonly class ApplicationService
         $application->setAppliedAt(new \DateTimeImmutable());
 
         $this->applicationRepository->save($application);
+
+        $this->messageBus->dispatch(new ScoreCandidateMessage($application->getId()));
 
         return $application;
     }

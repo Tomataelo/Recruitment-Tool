@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\DTO\Application\CreateApplicationDto;
-use App\DTO\Application\OverrideMatchDto;
+use App\Dto\Application\CreateApplicationDto;
+use App\Dto\Application\OverrideMatchDto;
 use App\Entity\Application;
 use App\Entity\JobOffer;
 use App\Entity\User;

@@ -33,27 +33,27 @@ services:
         condition: service_healthy
 
 # worker będzie potrzebny później - na start apki lecymy bez workera
-#  worker:
-#    build: .
-#    command: php bin/console messenger:consume async --time-limit=3600 --memory-limit=256M -vv
-#    volumes:
-#      - .:/app
-#      - /app/vendor
-#      - /app/var/cache
-#    environment:
-#      APP_ENV: ${APP_ENV}
-#      APP_SECRET: ${APP_SECRET}
-#      DATABASE_URL: "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:5432/${POSTGRES_DB}?serverVersion=16&charset=utf8"
-#      REDIS_URL: "redis://redis:6379"
-#      ELASTICSEARCH_URL: "http://elasticsearch:9200"
-#      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
-#      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL:-claude-sonnet-4-6}
-#    depends_on:
-#      database:
-#        condition: service_healthy
-#      redis:
-#        condition: service_healthy
-#    restart: on-failure
+  worker:
+    build: .
+    command: php bin/console messenger:consume async --time-limit=3600 --memory-limit=256M -vv
+    volumes:
+      - .:/app
+      - /app/vendor
+      - /app/var/cache
+    environment:
+      APP_ENV: ${APP_ENV}
+      APP_SECRET: ${APP_SECRET}
+      DATABASE_URL: "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:5432/${POSTGRES_DB}?serverVersion=16&charset=utf8"
+      REDIS_URL: "redis://redis:6379"
+      ELASTICSEARCH_URL: "http://elasticsearch:9200"
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL:-claude-sonnet-4-6}
+    depends_on:
+      database:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: on-failure
 
   database:
     image: postgres:16-alpine

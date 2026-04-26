@@ -24,7 +24,7 @@ class Application
 
     #[ORM\Column(length: 10, nullable: true, enumType: MatchLevel::class)]
     #[Groups(['application:read'])]
-    private ?string $matchLevel = null;
+    private ?MatchLevel $matchLevel = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     #[Groups(['application:read'])]
@@ -73,12 +73,12 @@ class Application
         return $this;
     }
 
-    public function getMatchLevel(): ?string
+    public function getMatchLevel(): ?MatchLevel
     {
         return $this->matchLevel;
     }
 
-    public function setMatchLevel(?string $matchLevel): static
+    public function setMatchLevel(?MatchLevel $matchLevel): static
     {
         $this->matchLevel = $matchLevel;
 
