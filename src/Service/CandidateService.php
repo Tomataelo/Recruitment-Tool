@@ -12,6 +12,7 @@ use App\Repository\CandidateRepository;
 use App\Service\LLM\CvParser;
 use League\Flysystem\FilesystemException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use App\Service\Elasticsearch\CandidateIndexer;
 
 readonly class CandidateService
 {
@@ -19,6 +20,7 @@ readonly class CandidateService
         private CandidateRepository $candidateRepository,
         private CvUploadService $cvUploadService,
         private CvParser $cvParser,
+        private CandidateIndexer    $candidateIndexer,
     ) {}
 
     public function create(CreateCandidateDto $dto, User $user): Candidate
@@ -60,6 +62,7 @@ readonly class CandidateService
         }
 
         $this->candidateRepository->save($candidate);
+        $this->candidateIndexer->index($candidate);
 
         return $candidate;
     }
@@ -67,7 +70,6 @@ readonly class CandidateService
     public function getByUser(User $user): Candidate
     {
         $candidate = $this->candidateRepository->findByUser($user);
-
         if (!$candidate) {
             throw new CandidateNotFoundException();
         }
@@ -95,5 +97,6 @@ readonly class CandidateService
         $candidate->setSummary($parsed['summary'] ?? null);
 
         $this->candidateRepository->save($candidate);
+        $this->candidateIndexer->index($candidate);
     }
 }

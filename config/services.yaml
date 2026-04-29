@@ -32,5 +32,15 @@ services:
             $apiKey: '%env(ANTHROPIC_API_KEY)%'
             $model:  '%env(ANTHROPIC_MODEL)%'
 
+    elasticsearch.client:
+        class: Elastic\Elasticsearch\Client
+        factory: [ 'App\Factory\ElasticsearchClientFactory', 'create' ]
+        arguments:
+            $elasticsearchUrl: '%env(ELASTICSEARCH_URL)%'
+
+    App\Service\Elasticsearch\CandidateIndexer:
+        arguments:
+            $client: '@elasticsearch.client'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
