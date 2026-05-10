@@ -1,9 +1,6 @@
 ### Root ###
 ../.idea
 
-### Docker ###
-.env
-
 ### Backend ###
 .phpunit.cache
 .env.local
