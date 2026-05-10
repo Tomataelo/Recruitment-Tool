@@ -46,8 +46,6 @@ RUN mkdir -p var/cache var/log \
 
 RUN composer dump-env prod
 
-RUN APP_ENV=prod php bin/console cache:warmup
-
 COPY docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
