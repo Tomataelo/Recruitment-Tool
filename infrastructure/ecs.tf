@@ -163,7 +163,8 @@ resource "aws_ecs_task_definition" "backend" {
         { name = "CLAUDE_API_KEY",      value = var.claude_api_key },
         { name = "AWS_BUCKET_NAME",     value = aws_s3_bucket.cv_storage.bucket },
         { name = "AWS_DEFAULT_REGION",  value = var.aws_region },
-        { name = "CORS_ALLOW_ORIGIN",   value = "https://${aws_cloudfront_distribution.frontend.domain_name}" }
+        { name = "CORS_ALLOW_ORIGIN",   value = "https://${aws_cloudfront_distribution.frontend.domain_name}" },
+        { name = "DEFAULT_URI", value = "http://localhost" },
       ]
 
       logConfiguration = {
@@ -233,7 +234,8 @@ resource "aws_ecs_task_definition" "worker" {
         { name = "ELASTICSEARCH_URL",  value = "http://localhost:9200" },
         { name = "CLAUDE_API_KEY",     value = var.claude_api_key },
         { name = "AWS_BUCKET_NAME",    value = aws_s3_bucket.cv_storage.bucket },
-        { name = "AWS_DEFAULT_REGION", value = var.aws_region }
+        { name = "AWS_DEFAULT_REGION", value = var.aws_region },
+        { name = "DEFAULT_URI", value = "http://localhost" }
       ]
 
       logConfiguration = {
