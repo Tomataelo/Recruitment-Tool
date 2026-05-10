@@ -37,7 +37,12 @@ RUN composer install --no-scripts --no-autoloader
 COPY . .
 RUN composer dump-autoload --optimize
 
+ENV APP_ENV=prod
+ENV APP_DEBUG=0
+
 RUN mkdir -p var/cache var/log \
  && chmod -R 777 var/
+
+RUN composer dump-env prod
 
 EXPOSE 9000
