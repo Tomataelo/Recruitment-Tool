@@ -25,3 +25,9 @@ frontend/node_modules/
 frontend/.env
 frontend/dist/
 frontend/build/
+
+### Terraform ###
+infrastructure/terraform.tfvars
+infrastructure/.terraform/
+infrastructure/*.tfstate
+infrastructure/*.tfstate.backup

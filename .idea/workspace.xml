@@ -5,158 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59473bf8-2e2e-4b9d-872c-9b37742e765b" name="Changes" comment="test: add unit tests for UserService,CandidateService and JobOfferService">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/.env.test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/bin/phpunit" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/config/jwt/private.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/config/jwt/public.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/config/packages/flysystem.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/config/packages/http_discovery.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/config/packages/monolog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/migrations/Version20260508122728.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/phpunit.dist.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Controller/RecruiterController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Controller/SearchController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Exception/CandidatesCvNotFound.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Factory/ElasticsearchClientFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Message/ScoreCandidateMessage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/MessageHandler/ScoreCandidateHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Service/Elasticsearch/CandidateIndexer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Service/LLM/CandidateScorer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/tests/Unit/Service/CandidateServiceTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/tests/Unit/Service/JobOfferServiceTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/tests/Unit/Service/UserServiceTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/tests/bootstrap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/eslint.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/favicon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/hero.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/react.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/vite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/applications/api/applicationsApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/applications/hooks/useApplications.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/api/authApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/hooks/useAuth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/candidates/api/candidatesApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/candidates/hooks/useCandidate.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/jobOffers/api/jobOffersApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/jobOffers/api/recruiterApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/jobOffers/components/JobOfferForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/jobOffers/hooks/useJobOffers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/features/jobOffers/hooks/useRecruiterStats.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/auth/LoginPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/auth/RegisterPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/candidate/DashboardPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/candidate/JobOfferDetailPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/candidate/JobOffersPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/candidate/ProfilePage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/recruiter/DashboardPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/recruiter/JobOfferDetailPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/recruiter/JobOffersPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/components/layout/AppLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/components/layout/DashboardLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/components/layout/Navbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/components/ui/Button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/components/ui/ConfirmDialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/components/ui/Modal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/lib/axios.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/lib/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/shared/types/auth.types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.node.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env.dev" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/console" beforeDir="false" afterPath="$PROJECT_DIR$/backend/bin/console" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.override.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/cache.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/cache.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/messenger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/messenger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/nelmio_cors.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/property_info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/property_info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/validator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/validator.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/preload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/reference.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/reference.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/routes/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/routes/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/docker/nginx/default.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/migrations/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Controller/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ApplicationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Controller/ApplicationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Controller/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CandidateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Controller/CandidateController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/JobOfferController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Controller/JobOfferController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dto/Application/CreateApplicationDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/Application/CreateApplicationDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dto/Application/OverrideMatchDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/Application/OverrideMatchDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dto/Auth/RegisterUserDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/Auth/RegisterUserDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dto/Candidate/CreateCandidateDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/Candidate/CreateCandidateDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dto/Candidate/UpdateCandidateDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/Candidate/UpdateCandidateDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dto/JobOffer/CreateJobOfferDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/JobOffer/CreateJobOfferDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dto/JobOffer/UpdateJobOfferDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/JobOffer/UpdateJobOfferDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Application.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/Application.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Candidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/Candidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/JobOffer.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/JobOffer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enum/Application/ApplicationStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/Application/ApplicationStatus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enum/Application/MatchLevel.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/Application/MatchLevel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enum/JobOffer/JobOfferStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/JobOffer/JobOfferStatus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enum/JobOffer/WorkMode.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/JobOffer/WorkMode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enum/User/UserRole.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/User/UserRole.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventListener/ExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/EventListener/ExceptionListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/ApplicationAlreadyExistsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Exception/ApplicationAlreadyExistsException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/CandidateAlreadyExistsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Exception/CandidateAlreadyExistsException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/CandidateNotFoundException.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Exception/CandidateNotFoundException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/CandidateProfileIncompleteException.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Exception/CandidateProfileIncompleteException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/JobOfferNotActiveException.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Exception/JobOfferNotActiveException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exception/UserAlreadyExistsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Exception/UserAlreadyExistsException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Repository/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ApplicationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Repository/ApplicationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CandidateRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Repository/CandidateRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/JobOfferRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Repository/JobOfferRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Voter/ApplicationVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Security/Voter/ApplicationVoter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Voter/CandidateVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Security/Voter/CandidateVoter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Voter/JobOfferVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Security/Voter/JobOfferVoter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/ApplicationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/ApplicationService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/CandidateService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/CandidateService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/CvUploadService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/CvUploadService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/JobOfferService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/JobOfferService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/LLM/ClaudeClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/LLM/ClaudeClient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/LLM/CvParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/LLM/CvParser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/PaginatorService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/PaginatorService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/symfony.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/docker/nginx/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/docker/nginx/prod.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/terraform.tfvars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/shared/lib/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/shared/lib/axios.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -470,26 +325,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "PHPUnit.CandidateServiceTest.executor": "Run",
-    "PHPUnit.UserServiceTest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/ProgrammingProjects/Recruitment-Tool",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "ts.external.directory.path": "C:\\ProgrammingProjects\\Recruitment-Tool\\frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;PHPUnit.CandidateServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;PHPUnit.UserServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/ProgrammingProjects/Recruitment-Tool&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\ProgrammingProjects\\Recruitment-Tool\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\ProgrammingProjects\Recruitment-Tool\backend" />
@@ -589,6 +444,8 @@
       <workItem from="1778268217667" duration="1437000" />
       <workItem from="1778322294826" duration="4206000" />
       <workItem from="1778407002613" duration="3047000" />
+      <workItem from="1778410747244" duration="4842000" />
+      <workItem from="1778417363571" duration="2710000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add entities, migrations and enums">
       <option name="closed" value="true" />

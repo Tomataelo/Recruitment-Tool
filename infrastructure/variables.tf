@@ -1,0 +1,19 @@
+variable "aws_region" {
+  default = "eu-central-1"
+}
+
+variable "app_name" {
+  default = "recruitment-tool"
+}
+
+variable "db_password" {
+  sensitive = true
+}
+
+variable "claude_api_key" {
+  sensitive = true
+}
+
+variable "jwt_secret" {
+  sensitive = true
+}

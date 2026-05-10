@@ -1,0 +1,5 @@
+aws_region     = "eu-central-1"
+app_name       = "recruitment-tool"
+db_password    = "megagigasecret!"
+claude_api_key = "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"
+jwt_secret     = "super-secret-jwt-key-recruitment-2026"
