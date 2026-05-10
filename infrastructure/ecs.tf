@@ -165,6 +165,7 @@ resource "aws_ecs_task_definition" "backend" {
         { name = "AWS_DEFAULT_REGION",  value = var.aws_region },
         { name = "CORS_ALLOW_ORIGIN",   value = "https://${aws_cloudfront_distribution.frontend.domain_name}" },
         { name = "DEFAULT_URI", value = "http://localhost" },
+        { name = "JWT_PASSPHRASE", value = var.jwt_secret }
       ]
 
       logConfiguration = {
@@ -235,7 +236,8 @@ resource "aws_ecs_task_definition" "worker" {
         { name = "CLAUDE_API_KEY",     value = var.claude_api_key },
         { name = "AWS_BUCKET_NAME",    value = aws_s3_bucket.cv_storage.bucket },
         { name = "AWS_DEFAULT_REGION", value = var.aws_region },
-        { name = "DEFAULT_URI", value = "http://localhost" }
+        { name = "DEFAULT_URI", value = "http://localhost" },
+        { name = "JWT_PASSPHRASE", value = var.jwt_secret },
       ]
 
       logConfiguration = {
