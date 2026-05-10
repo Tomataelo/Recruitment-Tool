@@ -1,0 +1,26 @@
+### Root ###
+../.idea
+
+### Docker ###
+backend/.env
+
+### Backend ###
+backend/.env.local
+backend/.env.local.php
+backend/.env.*.local
+backend/config/secrets/prod/prod.decrypt.private.php
+backend/public/bundles/
+backend/var/
+!backend/var/storage/
+!backend/var/storage/cv/
+!backend/var/storage/cv/.gitkeep
+backend/vendor/
+backend/config/jwt/*.pem
+backend/phpunit.xml
+backend/.phpunit.cache/
+
+### Frontend ###
+frontend/node_modules/
+frontend/.env
+frontend/dist/
+frontend/build/
