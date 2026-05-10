@@ -41,9 +41,12 @@ ENV APP_ENV=prod
 ENV APP_DEBUG=0
 
 RUN mkdir -p var/cache var/log \
- && chmod -R 777 var/
+ && chmod -R 777 var/ \
+ && chown -R www-data:www-data var/
 
 RUN composer dump-env prod
+
+RUN APP_ENV=prod php bin/console cache:warmup
 
 COPY docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
