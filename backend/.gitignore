@@ -5,6 +5,7 @@
 .env
 
 ### Backend ###
+.phpunit.cache
 .env.local
 .env.local.php
 .env.*.local

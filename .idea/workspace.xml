@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="59473bf8-2e2e-4b9d-872c-9b37742e765b" name="Changes" comment="test: add unit tests for UserService,CandidateService and JobOfferService">
       <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/var/log/dev.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -438,7 +437,7 @@
       <workItem from="1778268100209" duration="19000" />
       <workItem from="1778268217667" duration="1437000" />
       <workItem from="1778322294826" duration="4206000" />
-      <workItem from="1778407002613" duration="2969000" />
+      <workItem from="1778407002613" duration="3047000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add entities, migrations and enums">
       <option name="closed" value="true" />
