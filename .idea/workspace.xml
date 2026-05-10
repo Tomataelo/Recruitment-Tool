@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="59473bf8-2e2e-4b9d-872c-9b37742e765b" name="Changes" comment="test: add unit tests for UserService,CandidateService and JobOfferService">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/.env.test" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/bin/phpunit" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/jwt/private.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/jwt/public.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/packages/flysystem.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/packages/http_discovery.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/config/packages/monolog.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/migrations/Version20260508122728.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/phpunit.dist.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/Controller/RecruiterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/Controller/SearchController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/Exception/CandidatesCvNotFound.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/Factory/ElasticsearchClientFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/Message/ScoreCandidateMessage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/MessageHandler/ScoreCandidateHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/Service/Elasticsearch/CandidateIndexer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/Service/LLM/CandidateScorer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/tests/Unit/Service/CandidateServiceTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/tests/Unit/Service/JobOfferServiceTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/tests/Unit/Service/UserServiceTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/tests/bootstrap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/eslint.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/favicon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/icons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/hero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/react.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/vite.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/applications/api/applicationsApi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/applications/hooks/useApplications.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/api/authApi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/auth/hooks/useAuth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/candidates/api/candidatesApi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/candidates/hooks/useCandidate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/jobOffers/api/jobOffersApi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/jobOffers/api/recruiterApi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/jobOffers/components/JobOfferForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/jobOffers/hooks/useJobOffers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/features/jobOffers/hooks/useRecruiterStats.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/auth/LoginPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/auth/RegisterPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/candidate/DashboardPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/candidate/JobOfferDetailPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/candidate/JobOffersPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/candidate/ProfilePage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/recruiter/DashboardPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/recruiter/JobOfferDetailPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/recruiter/JobOffersPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/components/layout/AppLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/components/layout/DashboardLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/components/layout/Navbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/components/ui/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/components/ui/ConfirmDialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/components/ui/Modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/lib/axios.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/lib/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/shared/types/auth.types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/tsconfig.node.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/console" beforeDir="false" afterPath="$PROJECT_DIR$/backend/bin/console" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.override.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/cache.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/cache.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/doctrine.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/doctrine_migrations.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/framework.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/messenger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/messenger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/nelmio_cors.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/property_info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/property_info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/routing.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/validator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/packages/validator.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/preload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/reference.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/reference.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/routes/framework.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/routes/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/docker/nginx/default.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/migrations/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Controller/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ApplicationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Controller/ApplicationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Controller/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CandidateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Controller/CandidateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/JobOfferController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Controller/JobOfferController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dto/Application/CreateApplicationDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/Application/CreateApplicationDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dto/Application/OverrideMatchDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/Application/OverrideMatchDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dto/Auth/RegisterUserDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/Auth/RegisterUserDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dto/Candidate/CreateCandidateDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/Candidate/CreateCandidateDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dto/Candidate/UpdateCandidateDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/Candidate/UpdateCandidateDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dto/JobOffer/CreateJobOfferDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/JobOffer/CreateJobOfferDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dto/JobOffer/UpdateJobOfferDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Dto/JobOffer/UpdateJobOfferDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Application.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/Application.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Candidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/Candidate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/JobOffer.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/JobOffer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enum/Application/ApplicationStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/Application/ApplicationStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enum/Application/MatchLevel.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/Application/MatchLevel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enum/JobOffer/JobOfferStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/JobOffer/JobOfferStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enum/JobOffer/WorkMode.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/JobOffer/WorkMode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enum/User/UserRole.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/User/UserRole.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventListener/ExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/EventListener/ExceptionListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exception/ApplicationAlreadyExistsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Exception/ApplicationAlreadyExistsException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exception/CandidateAlreadyExistsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Exception/CandidateAlreadyExistsException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exception/CandidateNotFoundException.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Exception/CandidateNotFoundException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exception/CandidateProfileIncompleteException.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Exception/CandidateProfileIncompleteException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exception/JobOfferNotActiveException.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Exception/JobOfferNotActiveException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exception/UserAlreadyExistsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Exception/UserAlreadyExistsException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Repository/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ApplicationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Repository/ApplicationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/CandidateRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Repository/CandidateRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/JobOfferRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Repository/JobOfferRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/Voter/ApplicationVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Security/Voter/ApplicationVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/Voter/CandidateVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Security/Voter/CandidateVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/Voter/JobOfferVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Security/Voter/JobOfferVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/ApplicationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/ApplicationService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/CandidateService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/CandidateService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/CvUploadService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/CvUploadService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/JobOfferService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/JobOfferService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/LLM/ClaudeClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/LLM/ClaudeClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/LLM/CvParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/LLM/CvParser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/PaginatorService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/PaginatorService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Service/UserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/symfony.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Tomataelo&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Tomataelo/Recruitment-Tool.git&quot;,
+    &quot;accountId&quot;: &quot;5cc6e2fb-eb52-45ce-80f2-03d9c3a584b6&quot;
+  }
+}</component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="$PROJECT_DIR$/../../php-8.4.8/php.exe">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php85" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/type-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-aws-s3-v3" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-local" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/aws/aws-sdk-php" />
+      <path value="$PROJECT_DIR$/vendor/aws/aws-crt-php" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-messenger" />
+      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/vendor/php-http/discovery" />
+      <path value="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch" />
+      <path value="$PROJECT_DIR$/vendor/elastic/transport" />
+      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/vendor/open-telemetry/context" />
+      <path value="$PROJECT_DIR$/vendor/open-telemetry/api" />
+      <path value="$PROJECT_DIR$/vendor/nyholm/psr7" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/git-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/staabm/side-effects-detector" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/backend/vendor/composer" />
+      <path value="$PROJECT_DIR$/backend/vendor/aws/aws-sdk-php" />
+      <path value="$PROJECT_DIR$/backend/vendor/aws/aws-crt-php" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/backend/vendor/league/flysystem-aws-s3-v3" />
+      <path value="$PROJECT_DIR$/backend/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/backend/vendor/league/flysystem-local" />
+      <path value="$PROJECT_DIR$/backend/vendor/league/flysystem-bundle" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/backend/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/backend/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/backend/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/backend/vendor/elastic/transport" />
+      <path value="$PROJECT_DIR$/backend/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/backend/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/backend/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/backend/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/backend/vendor/staabm/side-effects-detector" />
+      <path value="$PROJECT_DIR$/backend/vendor/nyholm/psr7" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/doctrine-messenger" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php85" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/type-info" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/backend/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/backend/vendor/php-http/discovery" />
+      <path value="$PROJECT_DIR$/backend/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/backend/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/backend/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/backend/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/backend/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/git-state" />
+      <path value="$PROJECT_DIR$/backend/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/backend/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/backend/vendor/elasticsearch/elasticsearch" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/backend/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/backend/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/backend/vendor/open-telemetry/context" />
+      <path value="$PROJECT_DIR$/backend/vendor/open-telemetry/api" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/backend/vendor/monolog/monolog" />
+    </include_path>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="3BiEEUKRpiWaF3UdWBw4Dnk5EHm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "PHPUnit.CandidateServiceTest.executor": "Run",
+    "PHPUnit.UserServiceTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Merging main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/ProgrammingProjects/Recruitment-Tool",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "ts.external.directory.path": "C:\\ProgrammingProjects\\Recruitment-Tool\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\ProgrammingProjects\Recruitment-Tool\backend" />
+      <recent name="C:\ProgrammingProjects\Recruitment-Tool" />
+      <recent name="C:\ProgrammingProjects\Recruitment-Tool\frontend\src\features\jobOffers\components" />
+      <recent name="C:\ProgrammingProjects\Recruitment-Tool\frontend\src\pages\candidate" />
+      <recent name="C:\ProgrammingProjects\Recruitment-Tool\frontend\src\pages\recruiter" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHPUnit.CandidateServiceTest">
+    <configuration name="CandidateServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Unit\Service\CandidateServiceTest" file="$PROJECT_DIR$/tests/Unit/Service/CandidateServiceTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UserServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\Unit\Service\UserServiceTest" file="$PROJECT_DIR$/tests/Unit/Service/UserServiceTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.CandidateServiceTest" />
+        <item itemvalue="PHPUnit.UserServiceTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PS-251.26927.60" />
+        <option value="bundled-php-predefined-a98d8de5180a-e5747d4f5a45-com.jetbrains.php.sharedIndexes-PS-251.26927.60" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="59473bf8-2e2e-4b9d-872c-9b37742e765b" name="Changes" comment="" />
+      <created>1774963378894</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1774963378894</updated>
+      <workItem from="1774963380066" duration="376000" />
+      <workItem from="1774963795313" duration="4910000" />
+      <workItem from="1775032248762" duration="12000" />
+      <workItem from="1775073094107" duration="2065000" />
+      <workItem from="1775121404287" duration="51000" />
+      <workItem from="1775134569143" duration="5371000" />
+      <workItem from="1775207136751" duration="68000" />
+      <workItem from="1775215137972" duration="3974000" />
+      <workItem from="1775656652226" duration="3923000" />
+      <workItem from="1775725640259" duration="1070000" />
+      <workItem from="1775732253461" duration="1864000" />
+      <workItem from="1775743249516" duration="6333000" />
+      <workItem from="1775754066005" duration="61000" />
+      <workItem from="1775754233824" duration="1968000" />
+      <workItem from="1775907556168" duration="596000" />
+      <workItem from="1776069380797" duration="13000" />
+      <workItem from="1776080133636" duration="4336000" />
+      <workItem from="1776157972410" duration="18000" />
+      <workItem from="1776174065224" duration="4086000" />
+      <workItem from="1776255326661" duration="393000" />
+      <workItem from="1776342091383" duration="5140000" />
+      <workItem from="1776351614149" duration="3376000" />
+      <workItem from="1776431370308" duration="1460000" />
+      <workItem from="1776463192481" duration="169000" />
+      <workItem from="1776595644981" duration="5000" />
+      <workItem from="1776777297229" duration="1623000" />
+      <workItem from="1776849408138" duration="77000" />
+      <workItem from="1776864010635" duration="5386000" />
+      <workItem from="1776929762440" duration="10000" />
+      <workItem from="1776948540034" duration="3926000" />
+      <workItem from="1776957782818" duration="9000" />
+      <workItem from="1777131051636" duration="1926000" />
+      <workItem from="1777188902074" duration="3282000" />
+      <workItem from="1777281818659" duration="6000" />
+      <workItem from="1777296002827" duration="3377000" />
+      <workItem from="1777371691783" duration="14000" />
+      <workItem from="1777378213541" duration="5862000" />
+      <workItem from="1777457272489" duration="1676000" />
+      <workItem from="1777468491826" duration="4852000" />
+      <workItem from="1777536728272" duration="35000" />
+      <workItem from="1777558200737" duration="2671000" />
+      <workItem from="1777560912308" duration="5119000" />
+      <workItem from="1777724961935" duration="2494000" />
+      <workItem from="1777812024058" duration="8635000" />
+      <workItem from="1777884393405" duration="6855000" />
+      <workItem from="1777904060084" duration="1393000" />
+      <workItem from="1777970982452" duration="15000" />
+      <workItem from="1777990355603" duration="3364000" />
+      <workItem from="1778057226705" duration="9000" />
+      <workItem from="1778058363885" duration="1591000" />
+      <workItem from="1778073473920" duration="3692000" />
+      <workItem from="1778143560125" duration="19000" />
+      <workItem from="1778162060674" duration="6264000" />
+      <workItem from="1778227272156" duration="723000" />
+      <workItem from="1778240386663" duration="7349000" />
+      <workItem from="1778268100209" duration="19000" />
+      <workItem from="1778268217667" duration="1437000" />
+      <workItem from="1778322294826" duration="4206000" />
+      <workItem from="1778407002613" duration="3047000" />
+    </task>
+    <task id="LOCAL-00001" summary="feat: add entities, migrations and enums">
+      <option name="closed" value="true" />
+      <created>1775907901805</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1775907901805</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: add entities and enums">
+      <option name="closed" value="true" />
+      <created>1775907989413</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1775907989413</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: add enums and entities changes">
+      <option name="closed" value="true" />
+      <created>1776432126024</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1776432126024</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: add JWT authentication and user registration">
+      <option name="closed" value="true" />
+      <created>1776432226657</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1776432226657</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: add job offer logic and pagination">
+      <option name="closed" value="true" />
+      <created>1776777639147</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1776777639147</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: add candidate logic and cv upload">
+      <option name="closed" value="true" />
+      <created>1776872511662</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1776872511662</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: add application logic and claude api integration">
+      <option name="closed" value="true" />
+      <created>1777131533247</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1777131533247</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: add Symfony Messenger with async CV scoring">
+      <option name="closed" value="true" />
+      <created>1777192497991</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1777192497991</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: add Elasticsearch candidate search">
+      <option name="closed" value="true" />
+      <created>1777468724080</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1777468724080</updated>
+    </task>
+    <task id="LOCAL-00010" summary="test: add unit tests for UserService,CandidateService and JobOfferService">
+      <option name="closed" value="true" />
+      <created>1777474218302</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1777474218302</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: add entities, migrations and enums" />
+    <MESSAGE value="feat: add entities and enums" />
+    <MESSAGE value="feat: add enums and entities changes" />
+    <MESSAGE value="feat: add JWT authentication and user registration" />
+    <MESSAGE value="feat: add job offer logic and pagination" />
+    <MESSAGE value="feat: add candidate logic and cv upload" />
+    <MESSAGE value="feat: add application logic and claude api integration" />
+    <MESSAGE value="feat: add Symfony Messenger with async CV scoring" />
+    <MESSAGE value="feat: add Elasticsearch candidate search" />
+    <MESSAGE value="test: add unit tests for UserService,CandidateService and JobOfferService" />
+    <option name="LAST_COMMIT_MESSAGE" value="test: add unit tests for UserService,CandidateService and JobOfferService" />
+  </component>
+</project>
