@@ -2,22 +2,22 @@
 ../.idea
 
 ### Docker ###
-backend/.env
+.env
 
 ### Backend ###
-backend/.env.local
-backend/.env.local.php
-backend/.env.*.local
-backend/config/secrets/prod/prod.decrypt.private.php
-backend/public/bundles/
-backend/var/
-!backend/var/storage/
-!backend/var/storage/cv/
-!backend/var/storage/cv/.gitkeep
-backend/vendor/
-backend/config/jwt/*.pem
-backend/phpunit.xml
-backend/.phpunit.cache/
+.env.local
+.env.local.php
+.env.*.local
+config/secrets/prod/prod.decrypt.private.php
+public/bundles/
+var/
+!var/storage/
+!var/storage/cv/
+!var/storage/cv/.gitkeep
+vendor/
+config/jwt/*.pem
+phpunit.xml
+.phpunit.cache/
 
 ### Frontend ###
 frontend/node_modules/
