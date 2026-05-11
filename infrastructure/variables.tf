@@ -19,9 +19,17 @@ variable "jwt_secret" {
 }
 
 variable "jwt_secret_key" {
-  sensitive = true
+  description = "JWT private key content"
+  sensitive   = true
 }
 
 variable "jwt_public_key" {
-  sensitive = true
+  description = "JWT public key content"
+  sensitive   = true
+}
+
+variable "jwt_passphrase" {
+  description = "JWT passphrase"
+  sensitive   = true
+  default     = ""
 }
