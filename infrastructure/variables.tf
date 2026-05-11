@@ -17,3 +17,11 @@ variable "claude_api_key" {
 variable "jwt_secret" {
   sensitive = true
 }
+
+variable "jwt_secret_key" {
+  sensitive = true
+}
+
+variable "jwt_public_key" {
+  sensitive = true
+}
