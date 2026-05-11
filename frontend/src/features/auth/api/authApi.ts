@@ -2,7 +2,7 @@ import axios from 'axios'
 import type { User } from '../../../shared/types/auth.types'
 
 const authAxios = axios.create({
-    baseURL: 'http://localhost:8080/api',
+    baseURL: `${import.meta.env.VITE_API_URL}/api`,
     headers: {
         'Content-Type': 'application/json',
     },

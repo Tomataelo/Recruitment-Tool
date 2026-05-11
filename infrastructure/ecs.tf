@@ -211,6 +211,14 @@ resource "aws_ecs_service" "backend" {
     security_groups  = [aws_security_group.ecs.id]
     assign_public_ip = true
   }
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.backend.arn
+    container_name   = "nginx"
+    container_port   = 80
+  }
+
+  depends_on = [aws_lb_listener.https]
 }
 
 resource "aws_ecs_task_definition" "worker" {

@@ -14,6 +14,8 @@ resource "aws_cloudfront_distribution" "frontend" {
   enabled             = true
   default_root_object = "index.html"
 
+  aliases = ["recruitment-tool.pl", "www.recruitment-tool.pl"]
+
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
@@ -45,7 +47,9 @@ resource "aws_cloudfront_distribution" "frontend" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn      = "arn:aws:acm:us-east-1:566287346897:certificate/4d3e90e6-15af-47b7-8b6f-c341699661c7"
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 
   tags = {
@@ -54,5 +58,5 @@ resource "aws_cloudfront_distribution" "frontend" {
 }
 
 output "cloudfront_url" {
-  value = "https://${aws_cloudfront_distribution.frontend.domain_name}"
+  value = "https://recruitment-tool.pl"
 }
