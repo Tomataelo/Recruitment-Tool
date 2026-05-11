@@ -2,10 +2,10 @@
 set -e
 
 echo "Setting up JWT keys..."
-mkdir -p config/jwt
-echo "$JWT_SECRET_KEY_CONTENT" | base64 -d > config/jwt/private.pem
-echo "$JWT_PUBLIC_KEY_CONTENT" | base64 -d > config/jwt/public.pem
-chmod 600 config/jwt/private.pem
+mkdir -p /app/config/jwt
+printf '%s' "$JWT_SECRET_KEY_CONTENT" | base64 -d > /app/config/jwt/private.pem
+printf '%s' "$JWT_PUBLIC_KEY_CONTENT" | base64 -d > /app/config/jwt/public.pem
+chmod 600 /app/config/jwt/private.pem
 
 echo "Clearing cache..."
 php bin/console cache:clear
