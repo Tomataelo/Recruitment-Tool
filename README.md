@@ -4,6 +4,13 @@ A full-stack recruitment platform built with **PHP/Symfony** and **React**, depl
 
 🌐 **Live demo:** [www.recruitment-tool.pl](https://www.recruitment-tool.pl)
 
+### Demo accounts
+
+| Role | Email | Password |
+|------|-------|----------|
+| Recruiter | recruiter@gmail.com | recruiter123 |
+| Candidate | candidate@gmail.com | candidate123 |
+
 ---
 
 ## Features
