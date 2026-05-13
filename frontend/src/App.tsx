@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import LoginPage from './pages/auth/LoginPage'
 import RegisterPage from './pages/auth/RegisterPage'
+import ProtectedRoute from './shared/components/layout/ProtectedRoute'
 
 import RecruiterDashboardPage from './pages/recruiter/DashboardPage'
 import JobOffersPage from './pages/recruiter/JobOffersPage'
@@ -21,14 +22,14 @@ function App() {
           <Route path="/register/candidate" element={<RegisterPage role="ROLE_CANDIDATE" />} />
           <Route path="/register/recruiter" element={<RegisterPage role="ROLE_RECRUITER" />} />
 
-            <Route path="/recruiter" element={<RecruiterDashboardPage />} />
-          <Route path="/recruiter/job-offers" element={<JobOffersPage />} />
-          <Route path="/recruiter/job-offers/:id" element={<JobOfferDetailPage />} />
+          <Route path="/recruiter" element={<ProtectedRoute role="ROLE_RECRUITER"><RecruiterDashboardPage /></ProtectedRoute>} />
+          <Route path="/recruiter/job-offers" element={<ProtectedRoute role="ROLE_RECRUITER"><JobOffersPage /></ProtectedRoute>} />
+          <Route path="/recruiter/job-offers/:id" element={<ProtectedRoute role="ROLE_RECRUITER"><JobOfferDetailPage /></ProtectedRoute>} />
 
-          <Route path="/candidate" element={<CandidateDashboardPage />} />
-          <Route path="/candidate/profile" element={<CandidateProfilePage />} />
-          <Route path="/candidate/job-offers" element={<CandidateJobOffersPage />} />
-            <Route path="/candidate/job-offers/:id" element={<CandidateJobOfferDetailPage />} />
+          <Route path="/candidate" element={<ProtectedRoute role="ROLE_CANDIDATE"><CandidateDashboardPage /></ProtectedRoute>} />
+          <Route path="/candidate/profile" element={<ProtectedRoute role="ROLE_CANDIDATE"><CandidateProfilePage /></ProtectedRoute>} />
+          <Route path="/candidate/job-offers" element={<ProtectedRoute role="ROLE_CANDIDATE"><CandidateJobOffersPage /></ProtectedRoute>} />
+          <Route path="/candidate/job-offers/:id" element={<ProtectedRoute role="ROLE_CANDIDATE"><CandidateJobOfferDetailPage /></ProtectedRoute>} />
 
           <Route path="/" element={<Navigate to="/login" replace />} />
         </Routes>
