@@ -1,0 +1,12 @@
+# Sensitive variable files
+terraform.tfvars
+*.tfvars
+*.tfvars.json
+
+# Terraform state (may contain secrets)
+terraform.tfstate
+terraform.tfstate.backup
+
+# Terraform internals
+.terraform/
+.terraform.lock.hcl
