@@ -185,6 +185,7 @@ resource "aws_ecs_task_definition" "backend" {
         { name = "ANTHROPIC_MODEL",      value = "claude-sonnet-4-6" },
         { name = "AWS_BUCKET_NAME",     value = aws_s3_bucket.cv_storage.bucket },
         { name = "AWS_DEFAULT_REGION",  value = var.aws_region },
+        { name = "MESSENGER_TRANSPORT_DSN", value = "doctrine://default?auto_setup=0" },
         { name = "CORS_ALLOW_ORIGIN",   value = "https://www.recruitment-tool.pl" },
         { name = "DEFAULT_URI", value = "http://localhost" },
         { name = "JWT_SECRET_KEY", value = "/app/config/jwt/private.pem" },
@@ -205,7 +206,7 @@ resource "aws_ecs_task_definition" "backend" {
     },
     {
       name  = "elasticsearch"
-      image = "docker.elastic.co/elasticsearch/elasticsearch:8.11.0"
+      image = "docker.elastic.co/elasticsearch/elasticsearch:9.0.2"
 
       environment = [
         { name = "discovery.type",         value = "single-node" },
@@ -264,16 +265,20 @@ resource "aws_ecs_task_definition" "worker" {
       command = ["php", "bin/console", "messenger:consume", "async", "--memory-limit=256M", "-vv"]
 
       environment = [
-        { name = "APP_ENV",            value = "prod" },
-        { name = "APP_SECRET",         value = var.jwt_secret },
-        { name = "DATABASE_URL",       value = "postgresql://recruitment:${var.db_password}@${aws_db_instance.postgres.endpoint}/recruitment?serverVersion=16" },
-        { name = "ELASTICSEARCH_URL",  value = "http://localhost:9200" },
-        { name = "ANTHROPIC_API_KEY",  value = var.claude_api_key },
-        { name = "ANTHROPIC_MODEL",    value = "claude-sonnet-4-6" },
-        { name = "AWS_BUCKET_NAME",    value = aws_s3_bucket.cv_storage.bucket },
-        { name = "AWS_DEFAULT_REGION", value = var.aws_region },
-        { name = "DEFAULT_URI", value = "http://localhost" },
-        { name = "JWT_PASSPHRASE", value = "" },
+        { name = "APP_ENV",                  value = "prod" },
+        { name = "APP_SECRET",               value = var.jwt_secret },
+        { name = "DATABASE_URL",             value = "postgresql://recruitment:${var.db_password}@${aws_db_instance.postgres.endpoint}/recruitment?serverVersion=16" },
+        { name = "ANTHROPIC_API_KEY",        value = var.claude_api_key },
+        { name = "ANTHROPIC_MODEL",          value = "claude-sonnet-4-6" },
+        { name = "AWS_BUCKET_NAME",          value = aws_s3_bucket.cv_storage.bucket },
+        { name = "AWS_DEFAULT_REGION",       value = var.aws_region },
+        { name = "MESSENGER_TRANSPORT_DSN",  value = "doctrine://default?auto_setup=0" },
+        { name = "DEFAULT_URI",              value = "http://localhost" },
+        { name = "JWT_SECRET_KEY",           value = "/app/config/jwt/private.pem" },
+        { name = "JWT_PUBLIC_KEY",           value = "/app/config/jwt/public.pem" },
+        { name = "JWT_SECRET_KEY_CONTENT",   value = var.jwt_secret_key },
+        { name = "JWT_PUBLIC_KEY_CONTENT",   value = var.jwt_public_key },
+        { name = "JWT_PASSPHRASE",           value = "e1d4c6fec2ecf3e4e98eb6a8182dffcd4142b080bbac3306d9aca5d6fa8721fe" },
       ]
 
       logConfiguration = {

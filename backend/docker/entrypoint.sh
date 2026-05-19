@@ -21,5 +21,4 @@ chown -R www-data:www-data /app/var/
 echo "Running migrations..."
 php bin/console doctrine:migrations:migrate --no-interaction
 
-echo "Starting PHP-FPM..."
-exec php-fpm
+exec "${@:-php-fpm}"
