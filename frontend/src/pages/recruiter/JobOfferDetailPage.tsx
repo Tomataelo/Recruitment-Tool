@@ -245,6 +245,7 @@ export default function JobOfferDetailPage() {
                 isOpen={isEditModalOpen}
                 onClose={() => setIsEditModalOpen(false)}
                 title="Edytuj ofertę pracy"
+                size="lg"
             >
                 <JobOfferForm
                     onSubmit={handleUpdate}

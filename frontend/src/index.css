@@ -43,3 +43,25 @@ select {
   cursor: pointer;
   padding-right: 2rem;
 }
+
+/* TipTap editor content */
+.tiptap-editor p { margin-bottom: 0.5rem; }
+.tiptap-editor p:last-child { margin-bottom: 0; }
+.tiptap-editor h2 { font-size: 1rem; font-weight: 600; color: #fafafa; margin-bottom: 0.5rem; margin-top: 0.75rem; }
+.tiptap-editor h3 { font-size: 0.875rem; font-weight: 600; color: #fafafa; margin-bottom: 0.375rem; margin-top: 0.5rem; }
+.tiptap-editor ul { list-style-type: disc; padding-left: 1.25rem; margin-bottom: 0.5rem; }
+.tiptap-editor ol { list-style-type: decimal; padding-left: 1.25rem; margin-bottom: 0.5rem; }
+.tiptap-editor li { margin-bottom: 0.2rem; }
+.tiptap-editor blockquote { border-left: 3px solid #404040; padding-left: 0.75rem; color: #a3a3a3; margin: 0.5rem 0; }
+
+/* Rendered HTML content (candidate view) */
+.rich-content p { margin-bottom: 0.5rem; }
+.rich-content p:last-child { margin-bottom: 0; }
+.rich-content h2 { font-size: 0.9375rem; font-weight: 600; color: #e5e5e5; margin-bottom: 0.5rem; margin-top: 0.75rem; }
+.rich-content h3 { font-size: 0.875rem; font-weight: 600; color: #e5e5e5; margin-bottom: 0.375rem; margin-top: 0.5rem; }
+.rich-content strong { font-weight: 600; color: #d4d4d4; }
+.rich-content em { font-style: italic; }
+.rich-content ul { list-style-type: disc; padding-left: 1.25rem; margin-bottom: 0.5rem; }
+.rich-content ol { list-style-type: decimal; padding-left: 1.25rem; margin-bottom: 0.5rem; }
+.rich-content li { margin-bottom: 0.2rem; }
+.rich-content blockquote { border-left: 3px solid #404040; padding-left: 0.75rem; color: #737373; margin: 0.5rem 0; }

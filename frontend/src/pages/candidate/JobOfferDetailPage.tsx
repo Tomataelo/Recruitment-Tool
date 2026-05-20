@@ -136,7 +136,10 @@ export default function CandidateJobOfferDetailPage() {
 
                 <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 mb-4">
                     <h3 className="text-sm font-medium text-neutral-50 mb-3">Opis stanowiska</h3>
-                    <p className="text-sm text-neutral-400 leading-relaxed whitespace-pre-wrap">{jobOffer.description}</p>
+                    <div
+                        className="rich-content text-sm text-neutral-400 leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: jobOffer.description }}
+                    />
                 </div>
 
                 {jobOffer.requirements && jobOffer.requirements.length > 0 && (

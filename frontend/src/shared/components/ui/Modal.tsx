@@ -5,9 +5,10 @@ interface ModalProps {
     onClose: () => void
     title: string
     children: React.ReactNode
+    size?: 'md' | 'lg'
 }
 
-export function Modal({ isOpen, onClose, title, children }: ModalProps) {
+export function Modal({ isOpen, onClose, title, children, size = 'md' }: ModalProps) {
 
     useEffect(() => {
         const handleEsc = (e: KeyboardEvent) => {
@@ -36,10 +37,10 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
             />
 
             <div
-                className="relative z-10 w-full max-w-lg mx-4 bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl"
+                className={`relative z-10 w-full ${size === 'lg' ? 'max-w-2xl' : 'max-w-lg'} mx-4 bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl flex flex-col max-h-[90vh]`}
                 style={{ animation: 'slideUp 0.2s ease' }}
             >
-                <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-800">
+                <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-800 shrink-0">
                     <h2 className="text-base font-semibold text-neutral-50">{title}</h2>
                     <button
                         onClick={onClose}
@@ -51,7 +52,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
                     </button>
                 </div>
 
-                <div className="px-6 py-5">
+                <div className="px-6 py-5 overflow-y-auto">
                     {children}
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button } from '../../../shared/components/ui/Button.tsx'
+import { RichTextEditor } from '../../../shared/components/ui/RichTextEditor'
 import type { CreateJobOfferPayload, JobOffer } from '../api/jobOffersApi'
 
 interface Requirement {
@@ -71,14 +72,7 @@ export function JobOfferForm({ onSubmit, isLoading, initialData }: JobOfferFormP
 
             <div>
                 <label className={labelClass}>Opis</label>
-                <textarea
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="Opisz stanowisko..."
-                    required
-                    rows={3}
-                    className={`${inputClass} resize-none`}
-                />
+                <RichTextEditor value={description} onChange={setDescription} />
             </div>
 
             <div className="grid grid-cols-2 gap-3">

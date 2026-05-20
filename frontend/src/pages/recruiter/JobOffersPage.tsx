@@ -160,6 +160,7 @@ export default function JobOffersPage() {
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 title="Nowa oferta pracy"
+                size="lg"
             >
                 <JobOfferForm
                     onSubmit={handleCreate}
