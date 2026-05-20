@@ -76,7 +76,7 @@ export default function CandidateJobOfferDetailPage() {
 
     return (
         <AppLayout navItems={navItems}>
-            <div className="p-8 max-w-3xl mx-auto">
+            <div className="p-8 max-w-7xl mx-auto">
 
                 <div className="flex items-center gap-4 mb-8">
                     <button
@@ -87,7 +87,7 @@ export default function CandidateJobOfferDetailPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                         </svg>
                     </button>
-                    <div className="flex-1">
+                    <div>
                         <h2 className="text-xl font-semibold text-neutral-50">{jobOffer.title}</h2>
                         <div className="flex items-center gap-3 mt-1">
                             <span className="text-xs text-neutral-500">{workModeLabels[jobOffer.workMode]}</span>
@@ -100,25 +100,6 @@ export default function CandidateJobOfferDetailPage() {
                             <span className="text-neutral-700">·</span>
                             <span className="text-xs text-neutral-500">min. {jobOffer.experienceMin} mies.</span>
                         </div>
-                    </div>
-
-                    <div className="flex-shrink-0">
-                        {hasApplied ? (
-                            <div className="flex flex-col items-end gap-1">
-                                <span className="text-xs px-4 py-2 rounded-xl bg-green-950 text-green-400 border border-green-900 font-medium">
-                                  Aplikowano ✓
-                                </span>
-                                <span className="text-xs text-neutral-600">Już aplikowałeś na tę ofertę</span>
-                            </div>
-                        ) : (
-                            <button
-                                onClick={handleApply}
-                                disabled={!hasCV || apply.isPending}
-                                className="px-5 py-2.5 text-sm font-medium bg-neutral-50 text-neutral-900 rounded-xl hover:bg-neutral-200 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
-                            >
-                                {apply.isPending ? 'Wysyłanie...' : 'Aplikuj'}
-                            </button>
-                        )}
                     </div>
                 </div>
 
@@ -134,53 +115,84 @@ export default function CandidateJobOfferDetailPage() {
                     </div>
                 )}
 
-                <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 mb-4">
-                    <h3 className="text-sm font-medium text-neutral-50 mb-3">Opis stanowiska</h3>
-                    <div
-                        className="rich-content text-sm text-neutral-400 leading-relaxed"
-                        dangerouslySetInnerHTML={{ __html: jobOffer.description }}
-                    />
-                </div>
+                <div className="grid grid-cols-4 gap-6 items-start">
 
-                {jobOffer.requirements && jobOffer.requirements.length > 0 && (
-                    <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
-                        <h3 className="text-sm font-medium text-neutral-50 mb-4">Wymagania</h3>
-                        <div className="space-y-3">
-                            <div>
-                                <p className="text-xs text-neutral-500 uppercase tracking-wider mb-2">Must have</p>
-                                <div className="flex flex-wrap gap-2">
-                                    {jobOffer.requirements
-                                        .filter((r) => r.is_required)
-                                        .map((req) => (
-                                            <span
-                                                key={req.skill}
-                                                className="text-xs px-2.5 py-1 bg-neutral-800 text-neutral-300 rounded-lg border border-neutral-700"
-                                            >
-                                                {req.skill}
-                                            </span>
-                                        ))}
-                                </div>
-                            </div>
-                            {jobOffer.requirements.some((r) => !r.is_required) && (
-                                <div>
-                                    <p className="text-xs text-neutral-500 uppercase tracking-wider mb-2">Nice to have</p>
-                                    <div className="flex flex-wrap gap-2">
-                                        {jobOffer.requirements
-                                            .filter((r) => !r.is_required)
-                                            .map((req) => (
-                                                <span
-                                                    key={req.skill}
-                                                    className="text-xs px-2.5 py-1 bg-neutral-900 text-neutral-500 rounded-lg border border-neutral-800"
-                                                >
-                                                  {req.skill}
-                                                </span>
-                                            ))}
-                                    </div>
-                                </div>
-                            )}
+                    <div className="col-span-3">
+                        <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
+                            <h3 className="text-sm font-medium text-neutral-50 mb-4">Opis stanowiska</h3>
+                            <div
+                                className="rich-content text-sm text-neutral-400 leading-relaxed"
+                                dangerouslySetInnerHTML={{ __html: jobOffer.description }}
+                            />
                         </div>
                     </div>
-                )}
+
+                    <div className="col-span-1 space-y-4">
+
+                        <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5">
+                            {hasApplied ? (
+                                <div className="text-center space-y-1.5">
+                                    <div className="flex items-center justify-center gap-2 py-2.5 bg-green-950 border border-green-900 rounded-xl">
+                                        <span className="text-sm font-medium text-green-400">Aplikowano ✓</span>
+                                    </div>
+                                    <p className="text-xs text-neutral-600">Już aplikowałeś na tę ofertę</p>
+                                </div>
+                            ) : (
+                                <button
+                                    onClick={handleApply}
+                                    disabled={!hasCV || apply.isPending}
+                                    className="w-full py-2.5 text-sm font-medium bg-neutral-50 text-neutral-900 rounded-xl hover:bg-neutral-200 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                >
+                                    {apply.isPending ? 'Wysyłanie...' : 'Aplikuj na tę ofertę'}
+                                </button>
+                            )}
+                        </div>
+
+                        {jobOffer.requirements && jobOffer.requirements.length > 0 && (
+                            <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5">
+                                <h3 className="text-sm font-medium text-neutral-50 mb-4">Wymagania</h3>
+                                <div className="space-y-4">
+                                    {jobOffer.requirements.some((r) => r.is_required) && (
+                                        <div>
+                                            <p className="text-xs text-neutral-500 uppercase tracking-wider mb-2">Must have</p>
+                                            <div className="flex flex-wrap gap-2">
+                                                {jobOffer.requirements
+                                                    .filter((r) => r.is_required)
+                                                    .map((req) => (
+                                                        <span
+                                                            key={req.skill}
+                                                            className="text-xs px-2.5 py-1 bg-neutral-800 text-neutral-300 rounded-lg border border-neutral-700"
+                                                        >
+                                                            {req.skill}
+                                                        </span>
+                                                    ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                    {jobOffer.requirements.some((r) => !r.is_required) && (
+                                        <div>
+                                            <p className="text-xs text-neutral-500 uppercase tracking-wider mb-2">Nice to have</p>
+                                            <div className="flex flex-wrap gap-2">
+                                                {jobOffer.requirements
+                                                    .filter((r) => !r.is_required)
+                                                    .map((req) => (
+                                                        <span
+                                                            key={req.skill}
+                                                            className="text-xs px-2.5 py-1 bg-neutral-900 text-neutral-500 rounded-lg border border-neutral-800"
+                                                        >
+                                                            {req.skill}
+                                                        </span>
+                                                    ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+
+                    </div>
+
+                </div>
 
             </div>
         </AppLayout>

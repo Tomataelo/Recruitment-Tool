@@ -130,7 +130,7 @@ export default function CandidateProfilePage() {
 
     return (
         <AppLayout navItems={navItems}>
-            <div className="p-8 max-w-2xl mx-auto">
+            <div className="p-8 max-w-4xl mx-auto">
 
                 <div className="mb-8">
                     <h2 className="text-xl font-semibold text-neutral-50">Mój profil</h2>
