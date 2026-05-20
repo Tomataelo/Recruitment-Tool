@@ -5,10 +5,11 @@ interface ModalProps {
     onClose: () => void
     title: string
     children: React.ReactNode
-    size?: 'md' | 'lg'
+    size?: 'md' | 'lg' | 'xl'
 }
 
 export function Modal({ isOpen, onClose, title, children, size = 'md' }: ModalProps) {
+    const maxWidth = size === 'xl' ? 'max-w-4xl' : size === 'lg' ? 'max-w-2xl' : 'max-w-lg'
 
     useEffect(() => {
         const handleEsc = (e: KeyboardEvent) => {
@@ -37,7 +38,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'md' }: ModalPr
             />
 
             <div
-                className={`relative z-10 w-full ${size === 'lg' ? 'max-w-2xl' : 'max-w-lg'} mx-4 bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl flex flex-col max-h-[90vh]`}
+                className={`relative z-10 w-full ${maxWidth} mx-4 bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl flex flex-col max-h-[90vh]`}
                 style={{ animation: 'slideUp 0.2s ease' }}
             >
                 <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-800 shrink-0">

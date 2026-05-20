@@ -166,7 +166,7 @@ export function JobOfferForm({ onSubmit, isLoading, initialData }: JobOfferFormP
                     fullWidth
                     size="md"
                 >
-                    {isLoading ? 'Tworzenie...' : 'Utwórz ofertę'}
+                    {isLoading ? (initialData ? 'Zapisywanie...' : 'Tworzenie...') : (initialData ? 'Zapisz zmiany' : 'Utwórz ofertę')}
                 </Button>
             </div>
 

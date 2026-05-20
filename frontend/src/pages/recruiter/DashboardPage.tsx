@@ -35,6 +35,14 @@ const matchLevelColors: Record<string, string> = {
     no_match: 'text-red-400',
 }
 
+const statusConfig: Record<string, { label: string; className: string }> = {
+    pending:     { label: 'Oczekuje na AI',  className: 'bg-neutral-800 text-neutral-500 border-neutral-700' },
+    ai_reviewed: { label: 'Do przejrzenia',  className: 'bg-amber-950 text-amber-400 border-amber-900' },
+    reviewed:    { label: 'Przejrzana',      className: 'bg-neutral-800 text-neutral-400 border-neutral-700' },
+    accepted:    { label: 'Zaakceptowana',   className: 'bg-green-950 text-green-400 border-green-900' },
+    rejected:    { label: 'Odrzucona',       className: 'bg-red-950 text-red-400 border-red-900' },
+}
+
 const formatRelativeTime = (dateString: string) => {
     const date = new Date(dateString)
     const now = new Date()
@@ -117,10 +125,15 @@ export default function RecruiterDashboardPage() {
                                         {app.matchLevel && (
                                             <span className={`text-xs font-medium ${matchLevelColors[app.matchLevel]}`}>
                                                 {matchLevelLabels[app.matchLevel]}
-                                              </span>
+                                            </span>
+                                        )}
+                                        {app.status && statusConfig[app.status] && (
+                                            <span className={`text-xs px-2 py-0.5 rounded-md border ${statusConfig[app.status].className}`}>
+                                                {statusConfig[app.status].label}
+                                            </span>
                                         )}
                                         <span className="text-xs text-neutral-600">
-                                          {formatRelativeTime(app.appliedAt)}
+                                            {formatRelativeTime(app.appliedAt)}
                                         </span>
                                     </div>
                                 </div>

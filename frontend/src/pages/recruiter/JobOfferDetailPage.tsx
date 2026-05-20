@@ -29,6 +29,14 @@ const navItems = [
     },
 ]
 
+const statusConfig: Record<string, { label: string; className: string }> = {
+    pending:     { label: 'Oczekuje na AI',  className: 'bg-neutral-800 text-neutral-500 border-neutral-700' },
+    ai_reviewed: { label: 'Do przejrzenia',  className: 'bg-amber-950 text-amber-400 border-amber-900' },
+    reviewed:    { label: 'Przejrzana',      className: 'bg-neutral-800 text-neutral-400 border-neutral-700' },
+    accepted:    { label: 'Zaakceptowana',   className: 'bg-green-950 text-green-400 border-green-900' },
+    rejected:    { label: 'Odrzucona',       className: 'bg-red-950 text-red-400 border-red-900' },
+}
+
 const matchLevelConfig = {
     strong: {
         label: 'Strong Match',
@@ -105,6 +113,14 @@ function CandidateCard({ application, onSelect }: { application: Application; on
             {application.scoreSummary && (
                 <p className="text-xs text-neutral-500 line-clamp-2">{application.scoreSummary}</p>
             )}
+
+            <div className="flex items-center justify-between">
+                {application.status && statusConfig[application.status] && (
+                    <span className={`text-xs px-2 py-0.5 rounded-md border ${statusConfig[application.status].className}`}>
+                        {statusConfig[application.status].label}
+                    </span>
+                )}
+            </div>
 
             {application.recruiterMatchOverride && (
                 <div className="flex items-center gap-1.5">
@@ -261,150 +277,168 @@ export default function JobOfferDetailPage() {
                     setSelectedApplication(null)
                 }}
                 title="Profil kandydata"
+                size="xl"
             >
                 {isProfileLoading ? (
                     <div className="text-sm text-neutral-500 text-center py-8">Ładowanie...</div>
                 ) : candidateProfile ? (
-                    <div className="space-y-4">
+                    <div className="grid grid-cols-2 gap-5">
 
-                        <div className="space-y-2">
-                            <div className="flex items-center justify-between py-2 border-b border-neutral-800">
-                                <span className="text-xs text-neutral-500 uppercase tracking-wider">Imię i nazwisko</span>
-                                <span className="text-sm text-neutral-50">{candidateProfile.fullName}</span>
-                            </div>
-                            {candidateProfile.experienceMonths && (
+                        {/* Lewa kolumna — dane kandydata */}
+                        <div className="space-y-4">
+                            <div className="space-y-2">
                                 <div className="flex items-center justify-between py-2 border-b border-neutral-800">
-                                    <span className="text-xs text-neutral-500 uppercase tracking-wider">Doświadczenie</span>
+                                    <span className="text-xs text-neutral-500 uppercase tracking-wider">Imię i nazwisko</span>
+                                    <span className="text-sm text-neutral-50">{candidateProfile.fullName}</span>
+                                </div>
+                                {candidateProfile.experienceMonths && (
+                                    <div className="flex items-center justify-between py-2 border-b border-neutral-800">
+                                        <span className="text-xs text-neutral-500 uppercase tracking-wider">Doświadczenie</span>
+                                        <span className="text-sm text-neutral-50">
+                                            {Math.floor(candidateProfile.experienceMonths / 12)} lata {candidateProfile.experienceMonths % 12} mies.
+                                        </span>
+                                    </div>
+                                )}
+                                <div className="flex items-center justify-between py-2 border-b border-neutral-800">
+                                    <span className="text-xs text-neutral-500 uppercase tracking-wider">E-mail</span>
                                     <span className="text-sm text-neutral-50">
-                                        {Math.floor(candidateProfile.experienceMonths / 12)} lata {candidateProfile.experienceMonths % 12} mies.
+                                        {candidateProfile.candidateUser?.email ?? '—'}
                                     </span>
                                 </div>
-                            )}
-                            <div className="flex items-center justify-between py-2 border-b border-neutral-800">
-                                <span className="text-xs text-neutral-500 uppercase tracking-wider">E-mail</span>
-                                <span className="text-sm text-neutral-50">
-                                  {candidateProfile.candidateUser?.email ?? '—'}
-                                </span>
                             </div>
+
+                            {candidateProfile.skills && candidateProfile.skills.length > 0 && (
+                                <div>
+                                    <p className="text-xs text-neutral-500 uppercase tracking-wider mb-2">Umiejętności</p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {candidateProfile.skills.map((skill) => (
+                                            <span key={skill} className="text-xs px-2.5 py-1 bg-neutral-800 text-neutral-300 rounded-lg border border-neutral-700">
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {candidateProfile.languages && candidateProfile.languages.length > 0 && (
+                                <div>
+                                    <p className="text-xs text-neutral-500 uppercase tracking-wider mb-2">Języki</p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {candidateProfile.languages.map((lang) => (
+                                            <span key={lang.language} className="text-xs px-2.5 py-1 bg-neutral-800 text-neutral-300 rounded-lg border border-neutral-700">
+                                                {lang.language} — {lang.level}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {candidateProfile.summary && (
+                                <div>
+                                    <p className="text-xs text-neutral-500 uppercase tracking-wider mb-2">Podsumowanie z CV</p>
+                                    <p className="text-sm text-neutral-400 leading-relaxed">{candidateProfile.summary}</p>
+                                </div>
+                            )}
                         </div>
 
-                        {candidateProfile.skills && candidateProfile.skills.length > 0 && (
-                            <div>
-                                <p className="text-xs text-neutral-500 uppercase tracking-wider mb-2">Umiejętności</p>
-                                <div className="flex flex-wrap gap-2">
-                                    {candidateProfile.skills.map((skill) => (
-                                        <span key={skill} className="text-xs px-2.5 py-1 bg-neutral-800 text-neutral-300 rounded-lg border border-neutral-700">
-                      {skill}
-                    </span>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        {candidateProfile.languages && candidateProfile.languages.length > 0 && (
-                            <div>
-                                <p className="text-xs text-neutral-500 uppercase tracking-wider mb-2">Języki</p>
-                                <div className="flex flex-wrap gap-2">
-                                    {candidateProfile.languages.map((lang) => (
-                                        <span key={lang.language} className="text-xs px-2.5 py-1 bg-neutral-800 text-neutral-300 rounded-lg border border-neutral-700">
-                      {lang.language} — {lang.level}
-                    </span>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        {candidateProfile.summary && (
-                            <div>
-                                <p className="text-xs text-neutral-500 uppercase tracking-wider mb-2">Podsumowanie z CV</p>
-                                <p className="text-sm text-neutral-400 leading-relaxed">{candidateProfile.summary}</p>
-                            </div>
-                        )}
-
-                        {selectedApplication?.scoreSummary && (
-                            <div className="p-3 bg-neutral-800 rounded-xl border border-neutral-700">
-                                <div className="flex items-center gap-2 mb-2">
-                                    <span className="text-xs text-neutral-500 uppercase tracking-wider">Ocena AI</span>
-                                    {selectedApplication.score !== null && (
-                                        <span className="text-xs font-semibold text-neutral-50 ml-auto">
-                      {selectedApplication.score}%
-                    </span>
-                                    )}
-                                </div>
-                                <p className="text-xs text-neutral-400 leading-relaxed">
-                                    {selectedApplication.scoreSummary}
-                                </p>
-                            </div>
-                        )}
-
-                        <div className="pt-2 border-t border-neutral-800">
-                            {selectedApplication?.status === 'accepted' ? (
-                                <div className="space-y-2">
-                                    <div className="flex items-center justify-center gap-2 py-3 bg-green-950 border border-green-900 rounded-xl">
-                                        <span className="text-sm font-medium text-green-400">✓ Kandydat zaakceptowany</span>
+                        {/* Prawa kolumna — ocena AI + akcje */}
+                        <div className="flex flex-col gap-4">
+                            {selectedApplication?.scoreSummary && (
+                                <div className="p-4 bg-neutral-800 rounded-xl border border-neutral-700 flex-1">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <span className="text-xs text-neutral-500 uppercase tracking-wider">Ocena AI</span>
+                                        {selectedApplication.score !== null && (
+                                            <span className="text-sm font-semibold text-neutral-50 ml-auto">
+                                                {selectedApplication.score}%
+                                            </span>
+                                        )}
+                                        {(() => {
+                                            const level = selectedApplication.recruiterMatchOverride ?? selectedApplication.matchLevel
+                                            const config = level ? matchLevelConfig[level] : null
+                                            return config ? (
+                                                <span className={`text-xs px-2 py-0.5 rounded-md ${config.bg} ${config.color} border ${config.border}`}>
+                                                    {config.label}
+                                                </span>
+                                            ) : null
+                                        })()}
                                     </div>
-                                    <button
-                                        onClick={async () => {
-                                            await updateStatus.mutateAsync({ id: selectedApplicationId!, status: 'reviewed' })
-                                            setSelectedApplication(prev => prev ? { ...prev, status: 'reviewed' } : null)
-                                        }}
-                                        disabled={updateStatus.isPending}
-                                        className="w-full py-2 text-xs text-neutral-500 hover:text-neutral-300 transition-colors cursor-pointer"
-                                    >
-                                        Cofnij decyzję
-                                    </button>
-                                </div>
-                            ) : selectedApplication?.status === 'rejected' ? (
-                                <div className="space-y-2">
-                                    <div className="flex items-center justify-center gap-2 py-3 bg-red-950 border border-red-900 rounded-xl">
-                                        <span className="text-sm font-medium text-red-400">✗ Kandydat odrzucony</span>
-                                    </div>
-                                    <button
-                                        onClick={async () => {
-                                            await updateStatus.mutateAsync({ id: selectedApplicationId!, status: 'reviewed' })
-                                            setSelectedApplication(prev => prev ? { ...prev, status: 'reviewed' } : null)
-                                        }}
-                                        disabled={updateStatus.isPending}
-                                        className="w-full py-2 text-xs text-neutral-500 hover:text-neutral-300 transition-colors cursor-pointer"
-                                    >
-                                        Cofnij decyzję
-                                    </button>
-                                </div>
-                            ) : (
-                                <div className="flex gap-2">
-                                    {candidateProfile.cvFilePath && (
-                                        <button
-                                            onClick={() => applicationsApi.downloadCandidateCv(candidateProfile.id)}
-                                            className="flex items-center gap-2 px-3 py-2 text-sm font-medium border border-neutral-700 text-neutral-300 rounded-xl hover:bg-neutral-800 transition-colors cursor-pointer justify-center"
-                                        >
-                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                                            </svg>
-                                            Pobierz CV
-                                        </button>
-                                    )}
-                                    <button
-                                        onClick={async () => {
-                                            await updateStatus.mutateAsync({ id: selectedApplicationId!, status: 'accepted' })
-                                            setSelectedApplication(prev => prev ? { ...prev, status: 'accepted' } : null)
-                                        }}
-                                        disabled={updateStatus.isPending}
-                                        className="flex-1 py-2 text-sm font-medium bg-green-600 text-white rounded-xl hover:bg-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
-                                    >
-                                        ✓ Zaakceptuj
-                                    </button>
-                                    <button
-                                        onClick={async () => {
-                                            await updateStatus.mutateAsync({ id: selectedApplicationId!, status: 'rejected' })
-                                            setSelectedApplication(prev => prev ? { ...prev, status: 'rejected' } : null)
-                                        }}
-                                        disabled={updateStatus.isPending}
-                                        className="flex-1 py-2 text-sm font-medium bg-red-950 text-red-400 border border-red-900 rounded-xl hover:bg-red-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
-                                    >
-                                        ✗ Odrzuć
-                                    </button>
+                                    <p className="text-xs text-neutral-400 leading-relaxed">
+                                        {selectedApplication.scoreSummary}
+                                    </p>
                                 </div>
                             )}
+
+                            <div className="border-t border-neutral-800 pt-4">
+                                {selectedApplication?.status === 'accepted' ? (
+                                    <div className="space-y-2">
+                                        <div className="flex items-center justify-center gap-2 py-3 bg-green-950 border border-green-900 rounded-xl">
+                                            <span className="text-sm font-medium text-green-400">✓ Kandydat zaakceptowany</span>
+                                        </div>
+                                        <button
+                                            onClick={async () => {
+                                                await updateStatus.mutateAsync({ id: selectedApplicationId!, status: 'reviewed' })
+                                                setSelectedApplication(prev => prev ? { ...prev, status: 'reviewed' } : null)
+                                            }}
+                                            disabled={updateStatus.isPending}
+                                            className="w-full py-2 text-xs text-neutral-500 hover:text-neutral-300 transition-colors cursor-pointer"
+                                        >
+                                            Cofnij decyzję
+                                        </button>
+                                    </div>
+                                ) : selectedApplication?.status === 'rejected' ? (
+                                    <div className="space-y-2">
+                                        <div className="flex items-center justify-center gap-2 py-3 bg-red-950 border border-red-900 rounded-xl">
+                                            <span className="text-sm font-medium text-red-400">✗ Kandydat odrzucony</span>
+                                        </div>
+                                        <button
+                                            onClick={async () => {
+                                                await updateStatus.mutateAsync({ id: selectedApplicationId!, status: 'reviewed' })
+                                                setSelectedApplication(prev => prev ? { ...prev, status: 'reviewed' } : null)
+                                            }}
+                                            disabled={updateStatus.isPending}
+                                            className="w-full py-2 text-xs text-neutral-500 hover:text-neutral-300 transition-colors cursor-pointer"
+                                        >
+                                            Cofnij decyzję
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <div className="space-y-2">
+                                        {candidateProfile.cvFilePath && (
+                                            <button
+                                                onClick={() => applicationsApi.downloadCandidateCv(candidateProfile.id)}
+                                                className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium border border-neutral-700 text-neutral-300 rounded-xl hover:bg-neutral-800 transition-colors cursor-pointer"
+                                            >
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                                </svg>
+                                                Pobierz CV
+                                            </button>
+                                        )}
+                                        <div className="flex gap-2">
+                                            <button
+                                                onClick={async () => {
+                                                    await updateStatus.mutateAsync({ id: selectedApplicationId!, status: 'accepted' })
+                                                    setSelectedApplication(prev => prev ? { ...prev, status: 'accepted' } : null)
+                                                }}
+                                                disabled={updateStatus.isPending}
+                                                className="flex-1 py-2 text-sm font-medium bg-green-600 text-white rounded-xl hover:bg-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                            >
+                                                ✓ Zaakceptuj
+                                            </button>
+                                            <button
+                                                onClick={async () => {
+                                                    await updateStatus.mutateAsync({ id: selectedApplicationId!, status: 'rejected' })
+                                                    setSelectedApplication(prev => prev ? { ...prev, status: 'rejected' } : null)
+                                                }}
+                                                disabled={updateStatus.isPending}
+                                                className="flex-1 py-2 text-sm font-medium bg-red-950 text-red-400 border border-red-900 rounded-xl hover:bg-red-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                            >
+                                                ✗ Odrzuć
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </div>
 
                     </div>
