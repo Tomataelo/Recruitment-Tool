@@ -2,6 +2,11 @@ resource "aws_ecs_cluster" "main" {
   name = "${var.app_name}-cluster"
 }
 
+resource "aws_ecs_cluster_capacity_providers" "main" {
+  cluster_name       = aws_ecs_cluster.main.name
+  capacity_providers = ["FARGATE", "FARGATE_SPOT"]
+}
+
 resource "aws_iam_role" "ecs_task_execution" {
   name = "${var.app_name}-ecs-execution-role"
 
@@ -298,7 +303,11 @@ resource "aws_ecs_service" "worker" {
   cluster         = aws_ecs_cluster.main.id
   task_definition = aws_ecs_task_definition.worker.arn
   desired_count   = 1
-  launch_type     = "FARGATE"
+
+  capacity_provider_strategy {
+    capacity_provider = "FARGATE_SPOT"
+    weight            = 1
+  }
 
   network_configuration {
     subnets          = data.aws_subnets.default.ids

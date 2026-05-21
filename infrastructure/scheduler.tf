@@ -29,6 +29,14 @@ resource "aws_iam_role_policy" "scheduler" {
           aws_ecs_service.backend.id,
           aws_ecs_service.worker.id
         ]
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "rds:StopDBInstance",
+          "rds:StartDBInstance"
+        ]
+        Resource = aws_db_instance.postgres.arn
       }
     ]
   })
@@ -118,6 +126,46 @@ resource "aws_scheduler_schedule" "start_worker" {
       Cluster      = aws_ecs_cluster.main.name
       Service      = aws_ecs_service.worker.name
       DesiredCount = 1
+    })
+  }
+}
+
+resource "aws_scheduler_schedule" "stop_rds" {
+  name = "${var.app_name}-stop-rds"
+
+  flexible_time_window {
+    mode = "OFF"
+  }
+
+  schedule_expression          = "cron(5 0 * * ? *)"
+  schedule_expression_timezone = "Europe/Warsaw"
+
+  target {
+    arn      = "arn:aws:scheduler:::aws-sdk:rds:stopDBInstance"
+    role_arn = aws_iam_role.scheduler.arn
+
+    input = jsonencode({
+      DbInstanceIdentifier = aws_db_instance.postgres.identifier
+    })
+  }
+}
+
+resource "aws_scheduler_schedule" "start_rds" {
+  name = "${var.app_name}-start-rds"
+
+  flexible_time_window {
+    mode = "OFF"
+  }
+
+  schedule_expression          = "cron(50 6 * * ? *)"
+  schedule_expression_timezone = "Europe/Warsaw"
+
+  target {
+    arn      = "arn:aws:scheduler:::aws-sdk:rds:startDBInstance"
+    role_arn = aws_iam_role.scheduler.arn
+
+    input = jsonencode({
+      DbInstanceIdentifier = aws_db_instance.postgres.identifier
     })
   }
 }
