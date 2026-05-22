@@ -76,9 +76,9 @@ export default function CandidateJobOfferDetailPage() {
 
     return (
         <AppLayout navItems={navItems}>
-            <div className="p-8 max-w-7xl mx-auto">
+            <div className="p-4 md:p-8 max-w-7xl mx-auto">
 
-                <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center gap-4 mb-6 md:mb-8">
                     <button
                         onClick={() => navigate('/candidate/job-offers')}
                         className="p-2 text-neutral-400 hover:text-neutral-50 hover:bg-neutral-800 rounded-lg transition-colors cursor-pointer"
@@ -115,9 +115,9 @@ export default function CandidateJobOfferDetailPage() {
                     </div>
                 )}
 
-                <div className="grid grid-cols-4 gap-6 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
 
-                    <div className="col-span-3">
+                    <div className="lg:col-span-3">
                         <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
                             <h3 className="text-sm font-medium text-neutral-50 mb-4">Opis stanowiska</h3>
                             <div

@@ -130,25 +130,25 @@ export default function CandidateProfilePage() {
 
     return (
         <AppLayout navItems={navItems}>
-            <div className="p-8 max-w-4xl mx-auto">
+            <div className="p-4 md:p-8 max-w-4xl mx-auto">
 
                 <div className="mb-8">
                     <h2 className="text-xl font-semibold text-neutral-50">Mój profil</h2>
                     <p className="text-sm text-neutral-400 mt-1">Twoje dane i CV</p>
                 </div>
 
-                <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 mb-4">
-                    <div className="flex items-center justify-between">
-                        <div>
+                <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 sm:p-6 mb-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                        <div className="flex-1 min-w-0">
                             <h3 className="text-sm font-medium text-neutral-50 mb-1">Curriculum Vitae</h3>
-                            <p className="text-xs text-neutral-500">
+                            <p className="text-xs text-neutral-500 break-all">
                                 {candidate.cvFilePath
                                     ? `Wgrane: ${candidate.cvFilePath}`
                                     : 'Brak wgranego CV — dodaj CV żeby móc aplikować'
                                 }
                             </p>
                         </div>
-                        <div>
+                        <div className="flex-shrink-0">
                             <input
                                 ref={fileInputRef}
                                 type="file"

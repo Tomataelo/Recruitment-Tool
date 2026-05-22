@@ -70,9 +70,9 @@ export default function CandidateJobOffersPage() {
 
     return (
         <AppLayout navItems={navItems}>
-            <div className="p-8">
+            <div className="p-4 md:p-8">
 
-                <div className="mb-8">
+                <div className="mb-6 md:mb-8">
                     <h2 className="text-xl font-semibold text-neutral-50">Oferty pracy</h2>
                     <p className="text-sm text-neutral-400 mt-1">
                         {data?.meta.total ?? 0} dostępnych ofert
@@ -107,9 +107,9 @@ export default function CandidateJobOffersPage() {
 
                             return (
                                 <div
-                                    key={offer.id}onClick={() => navigate(`/candidate/job-offers/${offer.id}`)}
+                                    key={offer.id} onClick={() => navigate(`/candidate/job-offers/${offer.id}`)}
 
-                                    className="bg-neutral-900 border border-neutral-800 rounded-xl px-6 py-5 flex items-center justify-between hover:border-neutral-700 transition-colors cursor-pointer"
+                                    className="bg-neutral-900 border border-neutral-800 rounded-xl px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3 hover:border-neutral-700 transition-colors cursor-pointer"
                                 >
                                     <div className="flex-1 min-w-0 mr-4">
                                         <h3 className="text-sm font-medium text-neutral-50 mb-1">{offer.title}</h3>

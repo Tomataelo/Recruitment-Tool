@@ -61,14 +61,14 @@ export default function CandidateDashboardPage() {
 
     return (
         <AppLayout navItems={navItems}>
-            <div className="p-8">
+            <div className="p-4 md:p-8">
 
-                <div className="mb-8">
+                <div className="mb-6 md:mb-8">
                     <h2 className="text-xl font-semibold text-neutral-50">Dashboard</h2>
                     <p className="text-sm text-neutral-400 mt-1">Witaj z powrotem!</p>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 md:mb-8">
 
                     <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-5">
                         <p className="text-xs text-neutral-500 uppercase tracking-wider mb-2">Status profilu</p>
@@ -115,8 +115,8 @@ export default function CandidateDashboardPage() {
                 </div>
 
                 {!isLoading && (!hasProfile || !hasCV) && (
-                    <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 flex items-center justify-between">
-                        <div>
+                    <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+                        <div className="flex-1">
                             <h3 className="text-sm font-medium text-neutral-50 mb-1">
                                 {!hasProfile ? 'Stwórz swój profil' : 'Wgraj CV'}
                             </h3>
@@ -129,7 +129,7 @@ export default function CandidateDashboardPage() {
                         </div>
                         <Link
                             to="/candidate/profile"
-                            className="px-4 py-2 text-sm font-medium bg-neutral-50 text-neutral-900 rounded-lg hover:bg-neutral-200 transition-colors whitespace-nowrap cursor-pointer"
+                            className="self-start sm:self-auto flex-shrink-0 px-4 py-2 text-sm font-medium bg-neutral-50 text-neutral-900 rounded-lg hover:bg-neutral-200 transition-colors cursor-pointer"
                         >
                             {!hasProfile ? 'Stwórz profil →' : 'Wgraj CV →'}
                         </Link>

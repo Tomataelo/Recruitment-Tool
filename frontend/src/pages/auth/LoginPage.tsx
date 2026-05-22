@@ -37,31 +37,30 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-neutral-100 dark:bg-neutral-950">
+        <div className="min-h-screen flex flex-col bg-neutral-950 sm:items-center sm:justify-center">
 
-            <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-800 w-[500px] min-h-[460px] px-16 py-16 flex flex-col gap-8 justify-center">
+            <div className="flex-1 sm:flex-none flex flex-col justify-center w-full sm:max-w-[460px] px-8 py-16 sm:px-14 sm:py-14 sm:rounded-2xl sm:border sm:border-neutral-800 sm:bg-neutral-900">
 
-                <div className="text-center">
-                    <h1 className="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
+                <div className="text-center mb-8">
+                    <h1 className="text-2xl font-semibold tracking-tight text-neutral-50">
                         Recruitment Tool
                     </h1>
-                    <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+                    <p className="mt-2 text-sm text-neutral-500">
                         Zaloguj się do swojego konta
                     </p>
                 </div>
 
-                <form onSubmit={handleSubmit} style={{ maxWidth: '320px', margin: '0 auto', width: '100%' }} className="flex flex-col gap-3">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
 
                     {error && (
-                        <div className="px-4 py-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md dark:bg-red-950 dark:border-red-900 dark:text-red-400">
+                        <div className="px-4 py-3 text-sm text-red-400 bg-red-950 border border-red-900 rounded-xl">
                             {error}
                         </div>
                     )}
 
                     <div className="relative">
                         <svg
-                            style={{ position: 'absolute', left: '1.25rem', top: '50%', transform: 'translateY(-50%)' }}
-                            className="w-5 h-5 text-neutral-400"
+                            className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
                         >
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
@@ -72,15 +71,13 @@ export default function LoginPage() {
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Email"
                             required
-                            style={{ paddingLeft: '3rem', paddingRight: '1.25rem', paddingTop: '1rem', paddingBottom: '1rem' }}
-                            className="w-full text-base border border-neutral-200 dark:border-neutral-700 rounded-full bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-50 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-neutral-300 dark:focus:ring-neutral-600 transition-colors"
+                            className="w-full pl-12 pr-5 py-4 text-base border border-neutral-700 rounded-full bg-neutral-800 text-neutral-50 placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-neutral-500 transition-colors"
                         />
                     </div>
 
                     <div className="relative">
                         <svg
-                            style={{ position: 'absolute', left: '1.25rem', top: '50%', transform: 'translateY(-50%)' }}
-                            className="w-5 h-5 text-neutral-400"
+                            className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
                         >
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 8.25V6a3.75 3.75 0 1 0-7.5 0v2.25m-.75 0h9a2.25 2.25 0 0 1 2.25 2.25v7.5A2.25 2.25 0 0 1 16.5 20.25h-9a2.25 2.25 0 0 1-2.25-2.25v-7.5A2.25 2.25 0 0 1 6.75 8.25Z" />
@@ -91,8 +88,7 @@ export default function LoginPage() {
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Hasło"
                             required
-                            style={{ paddingLeft: '3rem', paddingRight: '1.25rem', paddingTop: '1rem', paddingBottom: '1rem' }}
-                            className="w-full text-base border border-neutral-200 dark:border-neutral-700 rounded-full bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-50 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-neutral-300 dark:focus:ring-neutral-600 transition-colors"
+                            className="w-full pl-12 pr-5 py-4 text-base border border-neutral-700 rounded-full bg-neutral-800 text-neutral-50 placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-neutral-500 transition-colors"
                         />
                     </div>
 
@@ -102,23 +98,23 @@ export default function LoginPage() {
                         fullWidth
                         size="lg"
                         className="mt-2 rounded-full"
-                        style={{ padding: '0.7rem' }}
+                        style={{ padding: '0.85rem' }}
                     >
                         {loading ? 'Logowanie...' : 'Zaloguj się'}
                     </Button>
 
                 </form>
 
-                <div style={{ maxWidth: '320px', margin: '0 auto', width: '100%' }} className="text-center space-y-2">
-                    <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                <div className="mt-8 text-center space-y-2">
+                    <p className="text-sm text-neutral-500">
                         Szukasz pracy?{' '}
-                        <Link to="/register/candidate" className="text-neutral-900 dark:text-neutral-50 font-medium hover:underline">
+                        <Link to="/register/candidate" className="text-neutral-50 font-medium hover:underline">
                             Zarejestruj się jako kandydat
                         </Link>
                     </p>
-                    <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                    <p className="text-sm text-neutral-500">
                         Rekrutujesz?{' '}
-                        <Link to="/register/recruiter" className="text-neutral-900 dark:text-neutral-50 font-medium hover:underline">
+                        <Link to="/register/recruiter" className="text-neutral-50 font-medium hover:underline">
                             Zarejestruj się jako rekruter
                         </Link>
                     </p>

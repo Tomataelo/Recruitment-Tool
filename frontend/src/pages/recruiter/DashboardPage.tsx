@@ -72,14 +72,14 @@ export default function RecruiterDashboardPage() {
 
     return (
         <AppLayout navItems={navItems}>
-            <div className="p-8">
+            <div className="p-4 md:p-8">
 
-                <div className="mb-8">
+                <div className="mb-6 md:mb-8">
                     <h2 className="text-xl font-semibold text-neutral-50">Dashboard</h2>
                     <p className="text-sm text-neutral-400 mt-1">Przegląd aktywności rekrutacyjnej</p>
                 </div>
 
-                <div className="grid grid-cols-4 gap-4 mb-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6 md:mb-8">
                     {statCards.map((stat) => (
                         <div
                             key={stat.label}
@@ -111,19 +111,19 @@ export default function RecruiterDashboardPage() {
                                 <div
                                     key={app.id}
                                     onClick={() => app.jobOffer && navigate(`/recruiter/job-offers/${app.jobOffer.id}`)}
-                                    className="px-6 py-4 flex items-center justify-between hover:bg-neutral-800/50 transition-colors cursor-pointer"
+                                    className="px-4 sm:px-6 py-4 flex items-center justify-between gap-3 hover:bg-neutral-800/50 transition-colors cursor-pointer"
                                 >
-                                    <div>
-                                        <p className="text-sm font-medium text-neutral-50">
+                                    <div className="min-w-0 flex-1">
+                                        <p className="text-sm font-medium text-neutral-50 truncate">
                                             {app.candidate?.fullName ?? '—'}
                                         </p>
-                                        <p className="text-xs text-neutral-500 mt-0.5">
+                                        <p className="text-xs text-neutral-500 mt-0.5 truncate">
                                             {app.jobOffer?.title ?? '—'}
                                         </p>
                                     </div>
-                                    <div className="flex items-center gap-3">
+                                    <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                                         {app.matchLevel && (
-                                            <span className={`text-xs font-medium ${matchLevelColors[app.matchLevel]}`}>
+                                            <span className={`hidden sm:inline text-xs font-medium ${matchLevelColors[app.matchLevel]}`}>
                                                 {matchLevelLabels[app.matchLevel]}
                                             </span>
                                         )}
@@ -132,7 +132,7 @@ export default function RecruiterDashboardPage() {
                                                 {statusConfig[app.status].label}
                                             </span>
                                         )}
-                                        <span className="text-xs text-neutral-600">
+                                        <span className="hidden sm:block text-xs text-neutral-600">
                                             {formatRelativeTime(app.appliedAt)}
                                         </span>
                                     </div>

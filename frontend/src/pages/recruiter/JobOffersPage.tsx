@@ -58,9 +58,9 @@ export default function JobOffersPage() {
 
     return (
         <AppLayout navItems={navItems}>
-            <div className="p-8">
+            <div className="p-4 md:p-8">
 
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center justify-between mb-6 md:mb-8">
                     <div>
                         <h2 className="text-xl font-semibold text-neutral-50">Oferty pracy</h2>
                         <p className="text-sm text-neutral-400 mt-1">
@@ -85,11 +85,11 @@ export default function JobOffersPage() {
                             <div
                                 key={offer.id}
                                 onClick={() => navigate(`/recruiter/job-offers/${offer.id}`)}
-                                className="bg-neutral-900 border border-neutral-800 rounded-xl px-6 py-4 flex items-center justify-between hover:border-neutral-700 transition-colors cursor-pointer"
+                                className="bg-neutral-900 border border-neutral-800 rounded-xl px-4 sm:px-6 py-4 flex items-center justify-between gap-3 hover:border-neutral-700 transition-colors cursor-pointer"
                             >
-                                <div>
-                                    <h3 className="text-sm font-medium text-neutral-50">{offer.title}</h3>
-                                    <div className="flex items-center gap-3 mt-1">
+                                <div className="min-w-0 flex-1">
+                                    <h3 className="text-sm font-medium text-neutral-50 truncate">{offer.title}</h3>
+                                    <div className="flex items-center gap-2 sm:gap-3 mt-1 flex-wrap">
                                         <span className="text-xs text-neutral-500">
                                           {workModeLabels[offer.workMode]}
                                         </span>
@@ -106,7 +106,7 @@ export default function JobOffersPage() {
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-3">
+                                <div className="flex items-center gap-2 flex-shrink-0">
                                   <span className={`text-xs px-2 py-1 rounded-md font-medium ${
                                       offer.status === 'active'
                                           ? 'bg-green-950 text-green-400 border border-green-900'

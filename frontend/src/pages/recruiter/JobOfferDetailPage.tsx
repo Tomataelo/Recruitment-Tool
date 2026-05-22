@@ -203,9 +203,9 @@ export default function JobOfferDetailPage() {
 
     return (
         <AppLayout navItems={navItems}>
-            <div className="p-8">
+            <div className="p-4 md:p-8">
 
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center justify-between mb-6 md:mb-8 gap-3 flex-wrap">
                     <div className="flex items-center gap-4">
                         <button
                             onClick={() => navigate('/recruiter/job-offers')}
@@ -248,7 +248,7 @@ export default function JobOfferDetailPage() {
                 {isApplicationsLoading ? (
                     <div className="text-sm text-neutral-500 text-center py-12">Ładowanie...</div>
                 ) : (
-                    <div className="flex gap-4">
+                    <div className="flex flex-col md:flex-row gap-4">
                         <KanbanColumn level="strong" applications={strongMatch} onSelect={handleSelectApplication} />
                         <KanbanColumn level="partial" applications={partialMatch} onSelect={handleSelectApplication} />
                         <KanbanColumn level="no_match" applications={noMatch} onSelect={handleSelectApplication} />
@@ -282,7 +282,7 @@ export default function JobOfferDetailPage() {
                 {isProfileLoading ? (
                     <div className="text-sm text-neutral-500 text-center py-8">Ładowanie...</div>
                 ) : candidateProfile ? (
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
                         {/* Lewa kolumna — dane kandydata */}
                         <div className="space-y-4">

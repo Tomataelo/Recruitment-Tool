@@ -16,13 +16,11 @@ const roleLabel = {
 function InputWithIcon({ icon, ...props }: { icon: React.ReactNode } & React.InputHTMLAttributes<HTMLInputElement>) {
     return (
         <div className="relative">
-            <div style={{ position: 'absolute', left: '1.25rem', top: '50%', transform: 'translateY(-50%)' }}
-                 className="text-neutral-400 w-5 h-5 flex items-center justify-center">
+            <div className="absolute left-5 top-1/2 -translate-y-1/2 text-neutral-400 w-5 h-5 flex items-center justify-center">
                 {icon}
             </div>
             <input
-                style={{ paddingLeft: '3rem', paddingRight: '1.25rem', paddingTop: '1rem', paddingBottom: '1rem' }}
-                className="w-full text-base border border-neutral-200 dark:border-neutral-700 rounded-full bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-50 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-neutral-300 dark:focus:ring-neutral-600 transition-colors"
+                className="w-full pl-12 pr-5 py-4 text-base border border-neutral-700 rounded-full bg-neutral-800 text-neutral-50 placeholder:text-neutral-500 focus:outline-none focus:ring-1 focus:ring-neutral-500 transition-colors"
                 {...props}
             />
         </div>
@@ -72,23 +70,23 @@ export default function RegisterPage({ role }: RegisterPageProps) {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-neutral-100 dark:bg-neutral-950">
+        <div className="min-h-screen flex flex-col bg-neutral-950 sm:items-center sm:justify-center">
 
-            <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-800 w-[500px] min-h-[460px] px-16 py-16 flex flex-col gap-8 justify-center">
+            <div className="flex-1 sm:flex-none flex flex-col justify-center w-full sm:max-w-[460px] px-8 py-16 sm:px-14 sm:py-14 sm:rounded-2xl sm:border sm:border-neutral-800 sm:bg-neutral-900">
 
-                <div className="text-center">
-                    <h1 className="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
+                <div className="text-center mb-8">
+                    <h1 className="text-2xl font-semibold tracking-tight text-neutral-50">
                         Recruitment Tool
                     </h1>
-                    <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+                    <p className="mt-2 text-sm text-neutral-500">
                         Rejestracja jako {roleLabel[role]}
                     </p>
                 </div>
 
-                <form onSubmit={handleSubmit} style={{ maxWidth: '320px', margin: '0 auto', width: '100%' }} className="flex flex-col gap-3">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
 
                     {error && (
-                        <div className="px-4 py-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-md dark:bg-red-950 dark:border-red-900 dark:text-red-400">
+                        <div className="px-4 py-3 text-sm text-red-400 bg-red-950 border border-red-900 rounded-xl">
                             {error}
                         </div>
                     )}
@@ -117,31 +115,31 @@ export default function RegisterPage({ role }: RegisterPageProps) {
                         fullWidth
                         size="lg"
                         className="mt-2 rounded-full"
-                        style={{ padding: '0.7rem' }}
+                        style={{ padding: '0.85rem' }}
                     >
                         {loading ? 'Rejestrowanie...' : 'Zarejestruj się'}
                     </Button>
 
                 </form>
 
-                <div style={{ maxWidth: '320px', margin: '0 auto', width: '100%' }} className="text-center space-y-2">
-                    <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                <div className="mt-8 text-center space-y-2">
+                    <p className="text-sm text-neutral-500">
                         Masz już konto?{' '}
-                        <Link to="/login" className="text-neutral-900 dark:text-neutral-50 font-medium hover:underline">
+                        <Link to="/login" className="text-neutral-50 font-medium hover:underline">
                             Zaloguj się
                         </Link>
                     </p>
                     {role === 'ROLE_CANDIDATE' ? (
-                        <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                        <p className="text-sm text-neutral-500">
                             Rekrutujesz?{' '}
-                            <Link to="/register/recruiter" className="text-neutral-900 dark:text-neutral-50 font-medium hover:underline">
+                            <Link to="/register/recruiter" className="text-neutral-50 font-medium hover:underline">
                                 Zarejestruj się jako rekruter
                             </Link>
                         </p>
                     ) : (
-                        <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                        <p className="text-sm text-neutral-500">
                             Szukasz pracy?{' '}
-                            <Link to="/register/candidate" className="text-neutral-900 dark:text-neutral-50 font-medium hover:underline">
+                            <Link to="/register/candidate" className="text-neutral-50 font-medium hover:underline">
                                 Zarejestruj się jako kandydat
                             </Link>
                         </p>
